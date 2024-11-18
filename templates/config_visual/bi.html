@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>beta_基于django的记录管理系统</title>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/echarts.js"></script>
+    <style>
+      body {
+        color: black;
+      }
+      .myechart_size {
+        height: 450px;
+        border: 1px solid #000;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        margin: 10px;
+        background-color: rgba(0, 150, 255, 0.3);
+      }
+    </style>
+    {% include 'config_visual/function_echart.html' %}
+    <!-- echart-json -->
+    {% include 'config_visual/echart-json.html' %}
+  </head>
+  <body>
+    <div >
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <h3 style="color:black; font-size: 30px; font-weight: bold;">beta_基于django的记录管理系统</h3>
+        </div>
+      </div>
+      {% csrf_token %}
+<div class="row">
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_name_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 权限表 权限名称 ******************** pie_v2***/ init_echart("echart_permkwkwissions_name_pie_v2",'permkwkwissions.name_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_name_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 权限表 权限名称 ******************** pie_v1***/ init_echart("echart_permkwkwissions_name_pie_v1",'permkwkwissions.name_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_name_pie" class="myechart_size"></div></div></div>
+<script>/*** 权限表 权限名称 ******************** pie***/ init_echart("echart_permkwkwissions_name_pie",'permkwkwissions.name_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_name_line" class="myechart_size"></div></div></div>
+<script>/*** 权限表 权限名称 ******************** line***/ init_echart("echart_permkwkwissions_name_line",'permkwkwissions.name_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_name_bar" class="myechart_size"></div></div></div>
+<script>/*** 权限表 权限名称 ******************** bar***/ init_echart("echart_permkwkwissions_name_bar",'permkwkwissions.name_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_name_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 权限表 权限名称 ******************** bar_v1***/ init_echart("echart_permkwkwissions_name_bar_v1",'permkwkwissions.name_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-4">
+<p>
+权限表-描述 词云
+</p>
+<img src="" alt="" id="permkwkwissions.description_wordcloud" style="
+width: 100%;
+height: auto;
+margin-top: 55px;
+margin-left: 15px;">
+</div>
+<script>
+get_img_src('permkwkwissions.description_wordcloud');
+</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_permkwkwissions_createtime_line" class="myechart_size"></div></div></div>
+<script>/*** 权限表 创建时间 ******************** line***/ init_echart("echart_permkwkwissions_createtime_line",'permkwkwissions.createtime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_permkwkwissions_updatetime_line" class="myechart_size"></div></div></div>
+<script>/*** 权限表 更新时间 ******************** line***/ init_echart("echart_permkwkwissions_updatetime_line",'permkwkwissions.updatetime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_systemmodule_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 权限表 所属系统模块 ******************** pie_v2***/ init_echart("echart_permkwkwissions_systemmodule_pie_v2",'permkwkwissions.systemmodule_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_systemmodule_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 权限表 所属系统模块 ******************** pie_v1***/ init_echart("echart_permkwkwissions_systemmodule_pie_v1",'permkwkwissions.systemmodule_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_systemmodule_pie" class="myechart_size"></div></div></div>
+<script>/*** 权限表 所属系统模块 ******************** pie***/ init_echart("echart_permkwkwissions_systemmodule_pie",'permkwkwissions.systemmodule_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_systemmodule_line" class="myechart_size"></div></div></div>
+<script>/*** 权限表 所属系统模块 ******************** line***/ init_echart("echart_permkwkwissions_systemmodule_line",'permkwkwissions.systemmodule_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_systemmodule_bar" class="myechart_size"></div></div></div>
+<script>/*** 权限表 所属系统模块 ******************** bar***/ init_echart("echart_permkwkwissions_systemmodule_bar",'permkwkwissions.systemmodule_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_systemmodule_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 权限表 所属系统模块 ******************** bar_v1***/ init_echart("echart_permkwkwissions_systemmodule_bar_v1",'permkwkwissions.systemmodule_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_actiontype_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 权限表 动作类型如增删改查 ******************** pie_v2***/ init_echart("echart_permkwkwissions_actiontype_pie_v2",'permkwkwissions.actiontype_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_actiontype_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 权限表 动作类型如增删改查 ******************** pie_v1***/ init_echart("echart_permkwkwissions_actiontype_pie_v1",'permkwkwissions.actiontype_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_actiontype_pie" class="myechart_size"></div></div></div>
+<script>/*** 权限表 动作类型如增删改查 ******************** pie***/ init_echart("echart_permkwkwissions_actiontype_pie",'permkwkwissions.actiontype_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_actiontype_line" class="myechart_size"></div></div></div>
+<script>/*** 权限表 动作类型如增删改查 ******************** line***/ init_echart("echart_permkwkwissions_actiontype_line",'permkwkwissions.actiontype_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_actiontype_bar" class="myechart_size"></div></div></div>
+<script>/*** 权限表 动作类型如增删改查 ******************** bar***/ init_echart("echart_permkwkwissions_actiontype_bar",'permkwkwissions.actiontype_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_actiontype_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 权限表 动作类型如增删改查 ******************** bar_v1***/ init_echart("echart_permkwkwissions_actiontype_bar_v1",'permkwkwissions.actiontype_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_resource_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 权限表 资源标识 ******************** pie_v2***/ init_echart("echart_permkwkwissions_resource_pie_v2",'permkwkwissions.resource_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_resource_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 权限表 资源标识 ******************** pie_v1***/ init_echart("echart_permkwkwissions_resource_pie_v1",'permkwkwissions.resource_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_resource_pie" class="myechart_size"></div></div></div>
+<script>/*** 权限表 资源标识 ******************** pie***/ init_echart("echart_permkwkwissions_resource_pie",'permkwkwissions.resource_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_resource_line" class="myechart_size"></div></div></div>
+<script>/*** 权限表 资源标识 ******************** line***/ init_echart("echart_permkwkwissions_resource_line",'permkwkwissions.resource_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_resource_bar" class="myechart_size"></div></div></div>
+<script>/*** 权限表 资源标识 ******************** bar***/ init_echart("echart_permkwkwissions_resource_bar",'permkwkwissions.resource_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_resource_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 权限表 资源标识 ******************** bar_v1***/ init_echart("echart_permkwkwissions_resource_bar_v1",'permkwkwissions.resource_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_status_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 权限表 权限状态如启用、禁用 ******************** pie_v2***/ init_echart("echart_permkwkwissions_status_pie_v2",'permkwkwissions.status_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_status_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 权限表 权限状态如启用、禁用 ******************** pie_v1***/ init_echart("echart_permkwkwissions_status_pie_v1",'permkwkwissions.status_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_permkwkwissions_status_pie" class="myechart_size"></div></div></div>
+<script>/*** 权限表 权限状态如启用、禁用 ******************** pie***/ init_echart("echart_permkwkwissions_status_pie",'permkwkwissions.status_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_status_line" class="myechart_size"></div></div></div>
+<script>/*** 权限表 权限状态如启用、禁用 ******************** line***/ init_echart("echart_permkwkwissions_status_line",'permkwkwissions.status_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_status_bar" class="myechart_size"></div></div></div>
+<script>/*** 权限表 权限状态如启用、禁用 ******************** bar***/ init_echart("echart_permkwkwissions_status_bar",'permkwkwissions.status_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_permkwkwissions_status_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 权限表 权限状态如启用、禁用 ******************** bar_v1***/ init_echart("echart_permkwkwissions_status_bar_v1",'permkwkwissions.status_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_logs_action_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 日志表 操作类型 ******************** pie_v2***/ init_echart("echart_logs_action_pie_v2",'logs.action_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_logs_action_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 日志表 操作类型 ******************** pie_v1***/ init_echart("echart_logs_action_pie_v1",'logs.action_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_logs_action_pie" class="myechart_size"></div></div></div>
+<script>/*** 日志表 操作类型 ******************** pie***/ init_echart("echart_logs_action_pie",'logs.action_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_logs_action_line" class="myechart_size"></div></div></div>
+<script>/*** 日志表 操作类型 ******************** line***/ init_echart("echart_logs_action_line",'logs.action_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_logs_action_bar" class="myechart_size"></div></div></div>
+<script>/*** 日志表 操作类型 ******************** bar***/ init_echart("echart_logs_action_bar",'logs.action_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_logs_action_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 日志表 操作类型 ******************** bar_v1***/ init_echart("echart_logs_action_bar_v1",'logs.action_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_logs_objecttype_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 日志表 操作对象类型 ******************** pie_v2***/ init_echart("echart_logs_objecttype_pie_v2",'logs.objecttype_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_logs_objecttype_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 日志表 操作对象类型 ******************** pie_v1***/ init_echart("echart_logs_objecttype_pie_v1",'logs.objecttype_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_logs_objecttype_pie" class="myechart_size"></div></div></div>
+<script>/*** 日志表 操作对象类型 ******************** pie***/ init_echart("echart_logs_objecttype_pie",'logs.objecttype_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_logs_objecttype_line" class="myechart_size"></div></div></div>
+<script>/*** 日志表 操作对象类型 ******************** line***/ init_echart("echart_logs_objecttype_line",'logs.objecttype_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_logs_objecttype_bar" class="myechart_size"></div></div></div>
+<script>/*** 日志表 操作对象类型 ******************** bar***/ init_echart("echart_logs_objecttype_bar",'logs.objecttype_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_logs_objecttype_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 日志表 操作对象类型 ******************** bar_v1***/ init_echart("echart_logs_objecttype_bar_v1",'logs.objecttype_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-4">
+<p>
+日志表-描述 词云
+</p>
+<img src="" alt="" id="logs.description_wordcloud" style="
+width: 100%;
+height: auto;
+margin-top: 55px;
+margin-left: 15px;">
+</div>
+<script>
+get_img_src('logs.description_wordcloud');
+</script>
+<!--comment </div> -->
+
+
+
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_logs_createtime_line" class="myechart_size"></div></div></div>
+<script>/*** 日志表 创建时间 ******************** line***/ init_echart("echart_logs_createtime_line",'logs.createtime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_logs_status_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 日志表 日志状态如正常、异常 ******************** pie_v2***/ init_echart("echart_logs_status_pie_v2",'logs.status_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_logs_status_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 日志表 日志状态如正常、异常 ******************** pie_v1***/ init_echart("echart_logs_status_pie_v1",'logs.status_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_logs_status_pie" class="myechart_size"></div></div></div>
+<script>/*** 日志表 日志状态如正常、异常 ******************** pie***/ init_echart("echart_logs_status_pie",'logs.status_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_logs_status_line" class="myechart_size"></div></div></div>
+<script>/*** 日志表 日志状态如正常、异常 ******************** line***/ init_echart("echart_logs_status_line",'logs.status_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_logs_status_bar" class="myechart_size"></div></div></div>
+<script>/*** 日志表 日志状态如正常、异常 ******************** bar***/ init_echart("echart_logs_status_bar",'logs.status_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_logs_status_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 日志表 日志状态如正常、异常 ******************** bar_v1***/ init_echart("echart_logs_status_bar_v1",'logs.status_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-4">
+<p>
+评论表-评论内容 词云
+</p>
+<img src="" alt="" id="comments.content_wordcloud" style="
+width: 100%;
+height: auto;
+margin-top: 55px;
+margin-left: 15px;">
+</div>
+<script>
+get_img_src('comments.content_wordcloud');
+</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_comments_createtime_line" class="myechart_size"></div></div></div>
+<script>/*** 评论表 创建时间 ******************** line***/ init_echart("echart_comments_createtime_line",'comments.createtime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-4">
+<p>
+评论表-评论状态如审核通过、待审核、删除 词云
+</p>
+<img src="" alt="" id="comments.status_wordcloud" style="
+width: 100%;
+height: auto;
+margin-top: 55px;
+margin-left: 15px;">
+</div>
+<script>
+get_img_src('comments.status_wordcloud');
+</script>
+<!--comment </div> -->
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_comments_likes_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 评论表 点赞数 ******************** pie_v2***/ init_echart("echart_comments_likes_pie_v2",'comments.likes_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_comments_likes_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 评论表 点赞数 ******************** pie_v1***/ init_echart("echart_comments_likes_pie_v1",'comments.likes_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_comments_likes_pie" class="myechart_size"></div></div></div>
+<script>/*** 评论表 点赞数 ******************** pie***/ init_echart("echart_comments_likes_pie",'comments.likes_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_comments_likes_line" class="myechart_size"></div></div></div>
+<script>/*** 评论表 点赞数 ******************** line***/ init_echart("echart_comments_likes_line",'comments.likes_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_comments_likes_bar" class="myechart_size"></div></div></div>
+<script>/*** 评论表 点赞数 ******************** bar***/ init_echart("echart_comments_likes_bar",'comments.likes_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_comments_likes_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 评论表 点赞数 ******************** bar_v1***/ init_echart("echart_comments_likes_bar_v1",'comments.likes_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reckwkwordattachments_uploadtime_line" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 上传时间 ******************** line***/ init_echart("echart_reckwkwordattachments_uploadtime_line",'reckwkwordattachments.uploadtime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-4">
+<p>
+记录附件表-描述 词云
+</p>
+<img src="" alt="" id="reckwkwordattachments.description_wordcloud" style="
+width: 100%;
+height: auto;
+margin-top: 55px;
+margin-left: 15px;">
+</div>
+<script>
+get_img_src('reckwkwordattachments.description_wordcloud');
+</script>
+<!--comment </div> -->
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwords_title_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 记录表 记录标题 ******************** pie_v2***/ init_echart("echart_reckwkwords_title_pie_v2",'reckwkwords.title_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwords_title_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录表 记录标题 ******************** pie_v1***/ init_echart("echart_reckwkwords_title_pie_v1",'reckwkwords.title_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwords_title_pie" class="myechart_size"></div></div></div>
+<script>/*** 记录表 记录标题 ******************** pie***/ init_echart("echart_reckwkwords_title_pie",'reckwkwords.title_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwords_title_line" class="myechart_size"></div></div></div>
+<script>/*** 记录表 记录标题 ******************** line***/ init_echart("echart_reckwkwords_title_line",'reckwkwords.title_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwords_title_bar" class="myechart_size"></div></div></div>
+<script>/*** 记录表 记录标题 ******************** bar***/ init_echart("echart_reckwkwords_title_bar",'reckwkwords.title_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwords_title_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录表 记录标题 ******************** bar_v1***/ init_echart("echart_reckwkwords_title_bar_v1",'reckwkwords.title_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-4">
+<p>
+记录表-记录内容 词云
+</p>
+<img src="" alt="" id="reckwkwords.content_wordcloud" style="
+width: 100%;
+height: auto;
+margin-top: 55px;
+margin-left: 15px;">
+</div>
+<script>
+get_img_src('reckwkwords.content_wordcloud');
+</script>
+<!--comment </div> -->
+
+
+
+
+
+
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reckwkwords_createtime_line" class="myechart_size"></div></div></div>
+<script>/*** 记录表 创建时间 ******************** line***/ init_echart("echart_reckwkwords_createtime_line",'reckwkwords.createtime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reckwkwords_updatetime_line" class="myechart_size"></div></div></div>
+<script>/*** 记录表 更新时间 ******************** line***/ init_echart("echart_reckwkwords_updatetime_line",'reckwkwords.updatetime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwords_status_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 记录表 记录状态如公开、私有 ******************** pie_v2***/ init_echart("echart_reckwkwords_status_pie_v2",'reckwkwords.status_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwords_status_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录表 记录状态如公开、私有 ******************** pie_v1***/ init_echart("echart_reckwkwords_status_pie_v1",'reckwkwords.status_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwords_status_pie" class="myechart_size"></div></div></div>
+<script>/*** 记录表 记录状态如公开、私有 ******************** pie***/ init_echart("echart_reckwkwords_status_pie",'reckwkwords.status_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwords_status_line" class="myechart_size"></div></div></div>
+<script>/*** 记录表 记录状态如公开、私有 ******************** line***/ init_echart("echart_reckwkwords_status_line",'reckwkwords.status_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwords_status_bar" class="myechart_size"></div></div></div>
+<script>/*** 记录表 记录状态如公开、私有 ******************** bar***/ init_echart("echart_reckwkwords_status_bar",'reckwkwords.status_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwords_status_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录表 记录状态如公开、私有 ******************** bar_v1***/ init_echart("echart_reckwkwords_status_bar_v1",'reckwkwords.status_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwords_views_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 记录表 浏览次数 ******************** pie_v2***/ init_echart("echart_reckwkwords_views_pie_v2",'reckwkwords.views_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwords_views_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录表 浏览次数 ******************** pie_v1***/ init_echart("echart_reckwkwords_views_pie_v1",'reckwkwords.views_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwords_views_pie" class="myechart_size"></div></div></div>
+<script>/*** 记录表 浏览次数 ******************** pie***/ init_echart("echart_reckwkwords_views_pie",'reckwkwords.views_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwords_views_line" class="myechart_size"></div></div></div>
+<script>/*** 记录表 浏览次数 ******************** line***/ init_echart("echart_reckwkwords_views_line",'reckwkwords.views_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwords_views_bar" class="myechart_size"></div></div></div>
+<script>/*** 记录表 浏览次数 ******************** bar***/ init_echart("echart_reckwkwords_views_bar",'reckwkwords.views_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwords_views_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录表 浏览次数 ******************** bar_v1***/ init_echart("echart_reckwkwords_views_bar_v1",'reckwkwords.views_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_name_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 分类名称 ******************** pie_v2***/ init_echart("echart_reckwkwordcategkwkwories_name_pie_v2",'reckwkwordcategkwkwories.name_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_name_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 分类名称 ******************** pie_v1***/ init_echart("echart_reckwkwordcategkwkwories_name_pie_v1",'reckwkwordcategkwkwories.name_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_name_pie" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 分类名称 ******************** pie***/ init_echart("echart_reckwkwordcategkwkwories_name_pie",'reckwkwordcategkwkwories.name_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_name_line" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 分类名称 ******************** line***/ init_echart("echart_reckwkwordcategkwkwories_name_line",'reckwkwordcategkwkwories.name_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_name_bar" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 分类名称 ******************** bar***/ init_echart("echart_reckwkwordcategkwkwories_name_bar",'reckwkwordcategkwkwories.name_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_name_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 分类名称 ******************** bar_v1***/ init_echart("echart_reckwkwordcategkwkwories_name_bar_v1",'reckwkwordcategkwkwories.name_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-4">
+<p>
+记录分类表-描述 词云
+</p>
+<img src="" alt="" id="reckwkwordcategkwkwories.description_wordcloud" style="
+width: 100%;
+height: auto;
+margin-top: 55px;
+margin-left: 15px;">
+</div>
+<script>
+get_img_src('reckwkwordcategkwkwories.description_wordcloud');
+</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_createtime_line" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 创建时间 ******************** line***/ init_echart("echart_reckwkwordcategkwkwories_createtime_line",'reckwkwordcategkwkwories.createtime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_updatetime_line" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 更新时间 ******************** line***/ init_echart("echart_reckwkwordcategkwkwories_updatetime_line",'reckwkwordcategkwkwories.updatetime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_kwkwordernumber_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 显示顺序 ******************** pie_v2***/ init_echart("echart_reckwkwordcategkwkwories_kwkwordernumber_pie_v2",'reckwkwordcategkwkwories.kwkwordernumber_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_kwkwordernumber_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 显示顺序 ******************** pie_v1***/ init_echart("echart_reckwkwordcategkwkwories_kwkwordernumber_pie_v1",'reckwkwordcategkwkwories.kwkwordernumber_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_kwkwordernumber_pie" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 显示顺序 ******************** pie***/ init_echart("echart_reckwkwordcategkwkwories_kwkwordernumber_pie",'reckwkwordcategkwkwories.kwkwordernumber_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_kwkwordernumber_line" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 显示顺序 ******************** line***/ init_echart("echart_reckwkwordcategkwkwories_kwkwordernumber_line",'reckwkwordcategkwkwories.kwkwordernumber_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_kwkwordernumber_bar" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 显示顺序 ******************** bar***/ init_echart("echart_reckwkwordcategkwkwories_kwkwordernumber_bar",'reckwkwordcategkwkwories.kwkwordernumber_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_kwkwordernumber_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 显示顺序 ******************** bar_v1***/ init_echart("echart_reckwkwordcategkwkwories_kwkwordernumber_bar_v1",'reckwkwordcategkwkwories.kwkwordernumber_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_status_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 分类状态如启用、禁用 ******************** pie_v2***/ init_echart("echart_reckwkwordcategkwkwories_status_pie_v2",'reckwkwordcategkwkwories.status_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_status_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 分类状态如启用、禁用 ******************** pie_v1***/ init_echart("echart_reckwkwordcategkwkwories_status_pie_v1",'reckwkwordcategkwkwories.status_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_status_pie" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 分类状态如启用、禁用 ******************** pie***/ init_echart("echart_reckwkwordcategkwkwories_status_pie",'reckwkwordcategkwkwories.status_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_status_line" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 分类状态如启用、禁用 ******************** line***/ init_echart("echart_reckwkwordcategkwkwories_status_line",'reckwkwordcategkwkwories.status_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_status_bar" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 分类状态如启用、禁用 ******************** bar***/ init_echart("echart_reckwkwordcategkwkwories_status_bar",'reckwkwordcategkwkwories.status_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_reckwkwordcategkwkwories_status_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录分类表 分类状态如启用、禁用 ******************** bar_v1***/ init_echart("echart_reckwkwordcategkwkwories_status_bar_v1",'reckwkwordcategkwkwories.status_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_roles_rolename_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 角色表 角色名称 ******************** pie_v2***/ init_echart("echart_roles_rolename_pie_v2",'roles.rolename_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_roles_rolename_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 角色表 角色名称 ******************** pie_v1***/ init_echart("echart_roles_rolename_pie_v1",'roles.rolename_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_roles_rolename_pie" class="myechart_size"></div></div></div>
+<script>/*** 角色表 角色名称 ******************** pie***/ init_echart("echart_roles_rolename_pie",'roles.rolename_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_roles_rolename_line" class="myechart_size"></div></div></div>
+<script>/*** 角色表 角色名称 ******************** line***/ init_echart("echart_roles_rolename_line",'roles.rolename_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_roles_rolename_bar" class="myechart_size"></div></div></div>
+<script>/*** 角色表 角色名称 ******************** bar***/ init_echart("echart_roles_rolename_bar",'roles.rolename_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_roles_rolename_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 角色表 角色名称 ******************** bar_v1***/ init_echart("echart_roles_rolename_bar_v1",'roles.rolename_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-4">
+<p>
+角色表-描述 词云
+</p>
+<img src="" alt="" id="roles.description_wordcloud" style="
+width: 100%;
+height: auto;
+margin-top: 55px;
+margin-left: 15px;">
+</div>
+<script>
+get_img_src('roles.description_wordcloud');
+</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_roles_createtime_line" class="myechart_size"></div></div></div>
+<script>/*** 角色表 创建时间 ******************** line***/ init_echart("echart_roles_createtime_line",'roles.createtime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_roles_updatetime_line" class="myechart_size"></div></div></div>
+<script>/*** 角色表 更新时间 ******************** line***/ init_echart("echart_roles_updatetime_line",'roles.updatetime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_roles_permkwkwissions_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 角色表 权限如JSON格式 ******************** pie_v2***/ init_echart("echart_roles_permkwkwissions_pie_v2",'roles.permkwkwissions_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_roles_permkwkwissions_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 角色表 权限如JSON格式 ******************** pie_v1***/ init_echart("echart_roles_permkwkwissions_pie_v1",'roles.permkwkwissions_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_roles_permkwkwissions_pie" class="myechart_size"></div></div></div>
+<script>/*** 角色表 权限如JSON格式 ******************** pie***/ init_echart("echart_roles_permkwkwissions_pie",'roles.permkwkwissions_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_roles_permkwkwissions_line" class="myechart_size"></div></div></div>
+<script>/*** 角色表 权限如JSON格式 ******************** line***/ init_echart("echart_roles_permkwkwissions_line",'roles.permkwkwissions_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_roles_permkwkwissions_bar" class="myechart_size"></div></div></div>
+<script>/*** 角色表 权限如JSON格式 ******************** bar***/ init_echart("echart_roles_permkwkwissions_bar",'roles.permkwkwissions_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_roles_permkwkwissions_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 角色表 权限如JSON格式 ******************** bar_v1***/ init_echart("echart_roles_permkwkwissions_bar_v1",'roles.permkwkwissions_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_roles_status_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 角色表 角色状态如启用、禁用 ******************** pie_v2***/ init_echart("echart_roles_status_pie_v2",'roles.status_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_roles_status_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 角色表 角色状态如启用、禁用 ******************** pie_v1***/ init_echart("echart_roles_status_pie_v1",'roles.status_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_roles_status_pie" class="myechart_size"></div></div></div>
+<script>/*** 角色表 角色状态如启用、禁用 ******************** pie***/ init_echart("echart_roles_status_pie",'roles.status_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_roles_status_line" class="myechart_size"></div></div></div>
+<script>/*** 角色表 角色状态如启用、禁用 ******************** line***/ init_echart("echart_roles_status_line",'roles.status_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_roles_status_bar" class="myechart_size"></div></div></div>
+<script>/*** 角色表 角色状态如启用、禁用 ******************** bar***/ init_echart("echart_roles_status_bar",'roles.status_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_roles_status_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 角色表 角色状态如启用、禁用 ******************** bar_v1***/ init_echart("echart_roles_status_bar_v1",'roles.status_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_username_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户名 ******************** pie_v2***/ init_echart("echart_users_username_pie_v2",'users.username_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_username_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户名 ******************** pie_v1***/ init_echart("echart_users_username_pie_v1",'users.username_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_username_pie" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户名 ******************** pie***/ init_echart("echart_users_username_pie",'users.username_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_username_line" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户名 ******************** line***/ init_echart("echart_users_username_line",'users.username_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_username_bar" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户名 ******************** bar***/ init_echart("echart_users_username_bar",'users.username_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_username_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户名 ******************** bar_v1***/ init_echart("echart_users_username_bar_v1",'users.username_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_pkwkwasswkwkword_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 用户表 密码加密存储 ******************** pie_v2***/ init_echart("echart_users_pkwkwasswkwkword_pie_v2",'users.pkwkwasswkwkword_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_pkwkwasswkwkword_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 用户表 密码加密存储 ******************** pie_v1***/ init_echart("echart_users_pkwkwasswkwkword_pie_v1",'users.pkwkwasswkwkword_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_pkwkwasswkwkword_pie" class="myechart_size"></div></div></div>
+<script>/*** 用户表 密码加密存储 ******************** pie***/ init_echart("echart_users_pkwkwasswkwkword_pie",'users.pkwkwasswkwkword_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_pkwkwasswkwkword_line" class="myechart_size"></div></div></div>
+<script>/*** 用户表 密码加密存储 ******************** line***/ init_echart("echart_users_pkwkwasswkwkword_line",'users.pkwkwasswkwkword_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_pkwkwasswkwkword_bar" class="myechart_size"></div></div></div>
+<script>/*** 用户表 密码加密存储 ******************** bar***/ init_echart("echart_users_pkwkwasswkwkword_bar",'users.pkwkwasswkwkword_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_pkwkwasswkwkword_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 用户表 密码加密存储 ******************** bar_v1***/ init_echart("echart_users_pkwkwasswkwkword_bar_v1",'users.pkwkwasswkwkword_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_email_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 用户表 电子邮件 ******************** pie_v2***/ init_echart("echart_users_email_pie_v2",'users.email_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_email_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 用户表 电子邮件 ******************** pie_v1***/ init_echart("echart_users_email_pie_v1",'users.email_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_email_pie" class="myechart_size"></div></div></div>
+<script>/*** 用户表 电子邮件 ******************** pie***/ init_echart("echart_users_email_pie",'users.email_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_email_line" class="myechart_size"></div></div></div>
+<script>/*** 用户表 电子邮件 ******************** line***/ init_echart("echart_users_email_line",'users.email_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_email_bar" class="myechart_size"></div></div></div>
+<script>/*** 用户表 电子邮件 ******************** bar***/ init_echart("echart_users_email_bar",'users.email_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_email_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 用户表 电子邮件 ******************** bar_v1***/ init_echart("echart_users_email_bar_v1",'users.email_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_phone_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 用户表 电话号码 ******************** pie_v2***/ init_echart("echart_users_phone_pie_v2",'users.phone_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_phone_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 用户表 电话号码 ******************** pie_v1***/ init_echart("echart_users_phone_pie_v1",'users.phone_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_phone_pie" class="myechart_size"></div></div></div>
+<script>/*** 用户表 电话号码 ******************** pie***/ init_echart("echart_users_phone_pie",'users.phone_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_phone_line" class="myechart_size"></div></div></div>
+<script>/*** 用户表 电话号码 ******************** line***/ init_echart("echart_users_phone_line",'users.phone_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_phone_bar" class="myechart_size"></div></div></div>
+<script>/*** 用户表 电话号码 ******************** bar***/ init_echart("echart_users_phone_bar",'users.phone_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_phone_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 用户表 电话号码 ******************** bar_v1***/ init_echart("echart_users_phone_bar_v1",'users.phone_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_users_createtime_line" class="myechart_size"></div></div></div>
+<script>/*** 用户表 创建时间 ******************** line***/ init_echart("echart_users_createtime_line",'users.createtime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_users_lkwkwastlogkwkwintime_line" class="myechart_size"></div></div></div>
+<script>/*** 用户表 最后登录时间 ******************** line***/ init_echart("echart_users_lkwkwastlogkwkwintime_line",'users.lkwkwastlogkwkwintime_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_status_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户状态如活跃、禁用 ******************** pie_v2***/ init_echart("echart_users_status_pie_v2",'users.status_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_status_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户状态如活跃、禁用 ******************** pie_v1***/ init_echart("echart_users_status_pie_v1",'users.status_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_status_pie" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户状态如活跃、禁用 ******************** pie***/ init_echart("echart_users_status_pie",'users.status_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_status_line" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户状态如活跃、禁用 ******************** line***/ init_echart("echart_users_status_line",'users.status_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_status_bar" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户状态如活跃、禁用 ******************** bar***/ init_echart("echart_users_status_bar",'users.status_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_status_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户状态如活跃、禁用 ******************** bar_v1***/ init_echart("echart_users_status_bar_v1",'users.status_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+</div>
+
+      
+    </div>
+  </body>
+</html>

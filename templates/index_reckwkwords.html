@@ -1,0 +1,217 @@
+{% extends 'tp.html' %}
+
+{% block title %}
+beta_基于django的记录管理系统
+
+{% endblock %}
+{% block header-image %}
+
+{% endblock %}
+
+{% block body %}
+
+<h1 hidden>
+    标注-用于区分表名
+记录表
+</h1>
+
+<div class="container my-container-margin">
+    <div class="row">
+        <div class="col s6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                记录表
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container my-container-margin">
+    <div class="tab-content" id="myTabContent">
+        
+<div class="tab-pane fade show " id="t-8349-tab-pane" role="tabpanel" aria-labelledby="t-8349-tab" tabindex="0">
+系统管理员
+<div>
+<a href="/config_busi/supermanager" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8348-tab-pane" role="tabpanel" aria-labelledby="t-8348-tab" tabindex="0">
+权限表
+<div>
+<a href="/config_busi/permkwkwissions" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8347-tab-pane" role="tabpanel" aria-labelledby="t-8347-tab" tabindex="0">
+日志表
+<div>
+<a href="/config_busi/logs" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8346-tab-pane" role="tabpanel" aria-labelledby="t-8346-tab" tabindex="0">
+评论表
+<div>
+<a href="/config_busi/comments" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8345-tab-pane" role="tabpanel" aria-labelledby="t-8345-tab" tabindex="0">
+记录附件表
+<div>
+<a href="/config_busi/reckwkwordattachments" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8344-tab-pane" role="tabpanel" aria-labelledby="t-8344-tab" tabindex="0">
+记录表
+<div>
+<a href="/config_busi/reckwkwords" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8343-tab-pane" role="tabpanel" aria-labelledby="t-8343-tab" tabindex="0">
+记录分类表
+<div>
+<a href="/config_busi/reckwkwordcategkwkwories" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8342-tab-pane" role="tabpanel" aria-labelledby="t-8342-tab" tabindex="0">
+角色表
+<div>
+<a href="/config_busi/roles" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8341-tab-pane" role="tabpanel" aria-labelledby="t-8341-tab" tabindex="0">
+用户表
+<div>
+<a href="/config_busi/users" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+
+    </div>
+</div>
+
+
+        {% if mcauthfield_id.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="id" class="form-label form-group">记录ID</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_title.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="title" class="form-label form-group">记录标题</label>
+
+<input type="text" class="form-control form-control-lg" name="title" id="title"{% if not mcauthfield_title.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_content.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="content" class="form-label form-group">记录内容</label>
+
+<textarea class="form-control form-control-lg" name="content" id="content" {% if not mcauthfield_content.mcisblank %}required {% endif %}data-name="insert"></textarea>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_categkwkworyid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="categkwkworyid" class="form-label form-group">分类ID关联到记录分类</label>
+
+<select class="form-select form-select-lg mb-3" name="categkwkworyid" id="categkwkworyid" {% if not mcauthfield_categkwkworyid.mcisblank %}required {% endif %} data-name="insert"> <option value="" selected>未选择</option> {% for record in data_mc_reckwkwordcategkwkwories_57553 %} 
+<option value="{{record.value}}">
+
+<p>{{record.value}}:{{record.label }}</p>
+
+</option>
+ {% endfor %}
+</select>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_creatkwkworid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="creatkwkworid" class="form-label form-group">创建者ID关联到用户</label>
+
+<select class="form-select form-select-lg mb-3" name="creatkwkworid" id="creatkwkworid" {% if not mcauthfield_creatkwkworid.mcisblank %}required {% endif %} data-name="insert"> <option value="" selected>未选择</option> {% for record in data_mc_users_57554 %} 
+<option value="{{record.value}}">
+
+<p>{{record.value}}:{{record.label }}</p>
+
+</option>
+ {% endfor %}
+</select>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_createtime.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="createtime" class="form-label form-group">创建时间</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_updatetime.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="updatetime" class="form-label form-group">更新时间</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_status.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="status" class="form-label form-group">记录状态如公开、私有</label>
+
+<input type="text" class="form-control form-control-lg" name="status" id="status"{% if not mcauthfield_status.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_views.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="views" class="form-label form-group">浏览次数</label>
+
+<input type="text" class="form-control form-control-lg" name="views" id="views"{% if not mcauthfield_views.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+{% endblock %}
+
+{% block footer %}
+
+CopyRight ©beta_基于django的记录管理系统 vm788_cb37c1767d7b256d
+
+{% endblock %}
+
+{% block script-footer %}
+
+{% endblock %}
+

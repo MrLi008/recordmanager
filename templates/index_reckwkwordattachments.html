@@ -1,0 +1,219 @@
+{% extends 'tp.html' %}
+
+{% block title %}
+beta_基于django的记录管理系统
+
+{% endblock %}
+{% block header-image %}
+
+{% endblock %}
+
+{% block body %}
+
+<h1 hidden>
+    标注-用于区分表名
+记录附件表
+</h1>
+
+<div class="container my-container-margin">
+    <div class="row">
+        <div class="col s6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                记录附件表
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container my-container-margin">
+    <div class="tab-content" id="myTabContent">
+        
+<div class="tab-pane fade show " id="t-8349-tab-pane" role="tabpanel" aria-labelledby="t-8349-tab" tabindex="0">
+系统管理员
+<div>
+<a href="/config_busi/supermanager" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8348-tab-pane" role="tabpanel" aria-labelledby="t-8348-tab" tabindex="0">
+权限表
+<div>
+<a href="/config_busi/permkwkwissions" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8347-tab-pane" role="tabpanel" aria-labelledby="t-8347-tab" tabindex="0">
+日志表
+<div>
+<a href="/config_busi/logs" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8346-tab-pane" role="tabpanel" aria-labelledby="t-8346-tab" tabindex="0">
+评论表
+<div>
+<a href="/config_busi/comments" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8345-tab-pane" role="tabpanel" aria-labelledby="t-8345-tab" tabindex="0">
+记录附件表
+<div>
+<a href="/config_busi/reckwkwordattachments" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8344-tab-pane" role="tabpanel" aria-labelledby="t-8344-tab" tabindex="0">
+记录表
+<div>
+<a href="/config_busi/reckwkwords" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8343-tab-pane" role="tabpanel" aria-labelledby="t-8343-tab" tabindex="0">
+记录分类表
+<div>
+<a href="/config_busi/reckwkwordcategkwkwories" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8342-tab-pane" role="tabpanel" aria-labelledby="t-8342-tab" tabindex="0">
+角色表
+<div>
+<a href="/config_busi/roles" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8341-tab-pane" role="tabpanel" aria-labelledby="t-8341-tab" tabindex="0">
+用户表
+<div>
+<a href="/config_busi/users" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+
+    </div>
+</div>
+
+
+        {% if mcauthfield_id.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="id" class="form-label form-group">附件ID</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_reckwkwordid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="reckwkwordid" class="form-label form-group">记录ID关联到记录</label>
+
+<select class="form-select form-select-lg mb-3" name="reckwkwordid" id="reckwkwordid" {% if not mcauthfield_reckwkwordid.mcisblank %}required {% endif %} data-name="insert"> <option value="" selected>未选择</option> {% for record in data_mc_reckwkwords_57560 %} 
+<option value="{{record.value}}">
+
+<p>{{record.value}}:{{record.label }}</p>
+
+</option>
+ {% endfor %}
+</select>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_filename.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="filename" class="form-label form-group">文件名</label>
+
+<input type="file" class="form-control form-control-lg" name="filename" id="filename" onchange="uploadfile(e)" {% if not mcauthfield_filename.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_filepath.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="filepath" class="form-label form-group">文件存储路径</label>
+
+<input type="file" class="form-control form-control-lg" name="filepath" id="filepath" onchange="uploadfile(e)" {% if not mcauthfield_filepath.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_filesize.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="filesize" class="form-label form-group">文件大小</label>
+
+<input type="file" class="form-control form-control-lg" name="filesize" id="filesize" onchange="uploadfile(e)" {% if not mcauthfield_filesize.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_filetype.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="filetype" class="form-label form-group">文件类型</label>
+
+<input type="file" class="form-control form-control-lg" name="filetype" id="filetype" onchange="uploadfile(e)" {% if not mcauthfield_filetype.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_uploadtime.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="uploadtime" class="form-label form-group">上传时间</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_uploaderid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="uploaderid" class="form-label form-group">上传者ID关联到用户</label>
+
+<select class="form-select form-select-lg mb-3" name="uploaderid" id="uploaderid" {% if not mcauthfield_uploaderid.mcisblank %}required {% endif %} data-name="insert"> <option value="" selected>未选择</option> {% for record in data_mc_users_57566 %} 
+<option value="{{record.value}}">
+
+<p>{{record.value}}:{{record.label }}</p>
+
+</option>
+ {% endfor %}
+</select>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_description.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="description" class="form-label form-group">描述</label>
+
+<textarea class="form-control form-control-lg" name="description" id="description" {% if not mcauthfield_description.mcisblank %}required {% endif %}data-name="insert"></textarea>
+
+</div>
+        {% endif %}
+
+{% endblock %}
+
+{% block footer %}
+
+CopyRight ©beta_基于django的记录管理系统 vm788_cb37c1767d7b256d
+
+{% endblock %}
+
+{% block script-footer %}
+
+{% endblock %}
+

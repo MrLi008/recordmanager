@@ -1,0 +1,14 @@
+<script>
+    
+// 使用 jQuery 实现点击切换折叠
+$(document).ready(function() {
+    // 默认折叠所有子菜单
+  $(".submenu").hide();
+  
+  $(".toggle-submenu").click(function() {
+      var target = this.getAttribute('data-bs-target'); // 获取目标子菜单
+      $(target).slideToggle(); // 切换子菜单的显示/隐藏
+  });
+});
+
+</script>

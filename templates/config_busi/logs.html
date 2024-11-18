@@ -1,0 +1,958 @@
+{% extends '../tp.html' %}
+
+{% block title %}
+日志表
+{% endblock %}
+
+{% block body %}
+  <div class="my-container-margin">
+    <div class="divider"></div>
+    {% csrf_token %}
+    <div class="section">
+      <h4>日志表</h4>
+      <div>
+        <div class="row">
+          
+          {% if has_add %}
+            <button type="button" data-bs-toggle="modal" data-bs-target="#modalinsert" class="waves-effect waves-light btn">添加</button>
+          {% endif %}
+          <div class="divider"></div>
+        
+        
+          
+<div class="col-sm-10">
+</div>
+<div class="col-sm-2">
+<a href="/config_visual/bi_tplogs" target="_blank" class="waves-effect waves-light btn">
+统计分析
+</a>
+</div>
+        </div>  
+        <div class="section">
+          {% if record %}
+            <h3>Empty Data</h3>
+          {% else %}
+          
+<!--展开-->
+<div >
+<div class="toggle-submenu" data-bs-target="#form_search">
+筛选
+</div>
+<div id="form_search">
+<div class="row custom-form">
+<form action="" method="get" class="form">
+
+
+
+
+<div class="form-group">
+<label for="userid" class="col-form-label">用户ID关联到用户(userid)</label>
+<select name="userid_search" id="userid_search" class="col-form-control">
+<option value="" class="form-option">未选择</option>
+{% for record in data_mc_users_57577 %}
+<option value="{{record.value}}" class="form-option" {%if record.value == obj.userid_search %} selected="selected" {% endif %}>
+<p>{{record.value}}:{{record.label }}</p>
+</option>
+{% endfor %}
+</select>
+</div>
+
+
+
+<div class="form-group">
+<label for="action" class="col-form-label">操作类型(action)</label>
+<input type="text" class="form-control"
+name="action_search"
+value="{{record.obj.action_search}}"
+id="action_search" class="col-form-control">
+</div>
+
+
+
+
+
+<div class="form-group">
+<label for="objecttype" class="col-form-label">操作对象类型(objecttype)</label>
+<input type="text" class="form-control"
+name="objecttype_search"
+value="{{record.obj.objecttype_search}}"
+id="objecttype_search" class="col-form-control">
+</div>
+
+
+
+
+
+
+
+
+
+<div class="form-group">
+<label for="status" class="col-form-label">日志状态如正常、异常(status)</label>
+<input type="text" class="form-control"
+name="status_search"
+value="{{record.obj.status_search}}"
+id="status_search" class="col-form-control">
+</div>
+
+
+<div class="form-group">
+<button type="submit" class="btn btn-primary" >
+<i class="fas fa-search">搜索</i>
+</button>
+<a type="reset" class="btn btn-default" href="/config_busi/logs">
+<i class="fas fa-eraser">重置</i>
+</a>
+</div>
+</form>
+</div>
+</div>
+
+          </div>
+            <table class="table table-striped table-hover table-bordered">
+              <thead>
+                <tr>
+                  
+{% if mcauthfield_id.mcauthview %}
+<td>
+日志ID
+</td>
+{% endif %}
+
+{% if mcauthfield_userid.mcauthview %}
+<td>
+用户ID关联到用户
+</td>
+{% endif %}
+
+{% if mcauthfield_action.mcauthview %}
+<td>
+操作类型
+</td>
+{% endif %}
+
+{% if mcauthfield_objectid.mcauthview %}
+<td>
+操作对象ID如记录ID
+</td>
+{% endif %}
+
+{% if mcauthfield_objecttype.mcauthview %}
+<td>
+操作对象类型
+</td>
+{% endif %}
+
+{% if mcauthfield_description.mcauthview %}
+<td>
+描述
+</td>
+{% endif %}
+
+{% if mcauthfield_ipaddressip.mcauthview %}
+<td>
+地址
+</td>
+{% endif %}
+
+{% if mcauthfield_createtime.mcauthview %}
+<td>
+创建时间
+</td>
+{% endif %}
+
+{% if mcauthfield_status.mcauthview %}
+<td>
+日志状态如正常、异常
+</td>
+{% endif %}
+<th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for record in records %}
+                  <tr>
+                    
+ {% if mcauthfield_id.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.id}}">
+{{record.id }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_userid.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.userid}}">
+{{record.userid }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_action.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.action}}">
+{{record.action }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_objectid.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.objectid}}">
+{{record.objectid }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_objecttype.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.objecttype}}">
+{{record.objecttype }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_description.mcauthview %}
+<td class="text-nowrap-cell">
+
+{% if record.description %}
+{{record.description.name}}
+<p title="{{record.description}}">
+{{record.description|truncatechars:20}}
+</p>
+{% endif %}
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_ipaddressip.mcauthview %}
+<td class="text-nowrap-cell">
+
+{% if record.ipaddressip %}
+{{record.ipaddressip.name}}
+<p title="{{record.ipaddressip}}">
+{{record.ipaddressip|truncatechars:20}}
+</p>
+{% endif %}
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_createtime.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.createtime}}">
+{{record.createtime }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_status.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.status}}">
+{{record.status }}
+</p>
+
+</td>
+{% endif %}
+ <td>
+                      {% if has_upd %}
+                        <button data-bs-data="{{ record.id }}" data-bs-toggle="modal" data-bs-target="#modalupdate">修改</button>
+                      {% endif %}
+                      {% if has_del %}
+                        <button data-bs-data="{{ record.id }}" data-bs-toggle="modal" data-bs-target="#modalremove">删除</button>
+                      {% endif %}
+                      {% if has_view %}
+                        <button data-bs-data="{{ record.id }}" data-bs-toggle="modal" data-bs-target="#modalpreview">查看</button>
+                      {% endif %}
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block modal %}
+  <!-- Modal Structure -->
+
+  {% if has_add %}
+    <div id="modalinsert" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">
+              <h4>添加</h4>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="custom-form">
+              <form action="" method="post" enctype="multipart/form-data" class="col s12">
+                <input type="text" name="optype" value="add" hidden />{% csrf_token %}<div class="">
+        {% if mcauthfield_id.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="id" class="form-label form-group">日志ID</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_userid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="userid" class="form-label form-group">用户ID关联到用户</label>
+
+<select class="form-select form-select-lg mb-3" name="userid" id="userid" {% if not mcauthfield_userid.mcisblank %}required {% endif %} data-name="insert"> <option value="" selected>未选择</option> {% for record in data_mc_users_57577 %} 
+<option value="{{record.value}}">
+
+<p>{{record.value}}:{{record.label }}</p>
+
+</option>
+ {% endfor %}
+</select>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_action.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="action" class="form-label form-group">操作类型</label>
+
+<input type="text" class="form-control form-control-lg" name="action" id="action"{% if not mcauthfield_action.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_objectid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="objectid" class="form-label form-group">操作对象ID如记录ID</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_objecttype.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="objecttype" class="form-label form-group">操作对象类型</label>
+
+<input type="text" class="form-control form-control-lg" name="objecttype" id="objecttype"{% if not mcauthfield_objecttype.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_description.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="description" class="form-label form-group">描述</label>
+
+<textarea class="form-control form-control-lg" name="description" id="description" {% if not mcauthfield_description.mcisblank %}required {% endif %}data-name="insert"></textarea>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_ipaddressip.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="ipaddressip" class="form-label form-group">地址</label>
+
+<textarea class="form-control form-control-lg" name="ipaddressip" id="ipaddressip" {% if not mcauthfield_ipaddressip.mcisblank %}required {% endif %}data-name="insert"></textarea>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_createtime.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="createtime" class="form-label form-group">创建时间</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_status.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="status" class="form-label form-group">日志状态如正常、异常</label>
+
+<input type="text" class="form-control form-control-lg" name="status" id="status"{% if not mcauthfield_status.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+</div>
+                <div class="modal-footer">
+                  <button type="submit" class="modal-action modal-close btn-primary btn waves-effect waves-light">提交</button>
+                  <button type="reset" class="modal-action modal-close btn-default btn waves-effect waves-light" data-bs-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if has_upd %}
+    <div id="modalupdate" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">修改</div>
+          </div>
+          <div class="modal-body">
+            <div class="custom-form">
+              <form action="" method="post" enctype="multipart/form-data" class="col s12">
+                <input type="text" name="optype" value="upd" hidden />{% csrf_token %}<input type="text" name="_id_upd" value="" data-name="update_id" hidden />
+                <div class="">
+           {% if mcauthfield_id.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="id_upd"
+class="form-label form-group">
+日志ID(id)
+</label>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_userid.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="userid_upd"
+class="form-label form-group">
+用户ID关联到用户(userid)
+</label>
+
+<select class="form-select form-select-lg mb-3" name="userid"
+id="userid_upd"
+{% if not mcauthfield_userid.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_userid.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+<option value="">未选择</option>
+{% for record in data_mc_users_57577 %}
+
+<option value="{{record.value}}">
+
+<p>{{record.value}}:{{record.label }}</p>
+
+</option>
+
+{% endfor %}
+</select>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_action.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="action_upd"
+class="form-label form-group">
+操作类型(action)
+</label>
+
+<input type="text" class="validate form-control form-control-lg"
+name="action"
+id="action_upd"
+placeholder="操作类型"
+{% if not mcauthfield_action.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_action.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_objectid.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="objectid_upd"
+class="form-label form-group">
+操作对象ID如记录ID(objectid)
+</label>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_objecttype.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="objecttype_upd"
+class="form-label form-group">
+操作对象类型(objecttype)
+</label>
+
+<input type="text" class="validate form-control form-control-lg"
+name="objecttype"
+id="objecttype_upd"
+placeholder="操作对象类型"
+{% if not mcauthfield_objecttype.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_objecttype.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_description.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="description_upd"
+class="form-label form-group">
+描述(description)
+</label>
+
+<textarea type="text" class="validate form-control form-control-lg"
+name="description"
+id="description_upd"
+placeholder="描述"
+{% if not mcauthfield_description.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_description.mcauthchange %}
+readonly
+{% endif %}
+data-name="update"></textarea>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_ipaddressip.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="ipaddressip_upd"
+class="form-label form-group">
+地址(ipaddressip)
+</label>
+
+<textarea type="text" class="validate form-control form-control-lg"
+name="ipaddressip"
+id="ipaddressip_upd"
+placeholder="地址"
+{% if not mcauthfield_ipaddressip.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_ipaddressip.mcauthchange %}
+readonly
+{% endif %}
+data-name="update"></textarea>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_createtime.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="createtime_upd"
+class="form-label form-group">
+创建时间(createtime)
+</label>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_status.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="status_upd"
+class="form-label form-group">
+日志状态如正常、异常(status)
+</label>
+
+<input type="text" class="validate form-control form-control-lg"
+name="status"
+id="status_upd"
+placeholder="日志状态如正常、异常"
+{% if not mcauthfield_status.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_status.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+
+</div>
+        {% endif %}
+</div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn modal-action modal-close btn-primary waves-effect waves-light">提交</button>
+                  <button type="reset" class="btn modal-action modal-close btn-default waves-effect waves-light" data-bs-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if has_del %}
+    <div id="modalremove" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">删除</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>确认删除这条记录吗?</p>
+          </div>
+          <div class="modal-footer">
+            <div class="row custom-form">
+              <form action="" method="post" enctype="multipart/form-data" class="col s12">
+                <input type="text" name="optype" value="del" hidden />{% csrf_token %}<input type="text" name="_id" value="" data-name="remove" hidden />
+
+                <div class="modal-footer">
+                  <button type="submit" class="btn modal-action modal-close btn-primary waves-effect waves-light">确认</button>
+                  <button type="reset" class="btn modal-action modal-close btn-default waves-effect waves-light" data-bs-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if has_view %}
+    <div id="modalpreview" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <h4>预览</h4>
+          <div class="">
+            
+{% if mcauthfield_id.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">日志ID</p>
+
+<p id="id_view">
+{{record.id|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_userid.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">用户ID关联到用户</p>
+
+<p id="userid_view">
+{{record.userid|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_action.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">操作类型</p>
+
+<p id="action_view">
+{{record.action|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_objectid.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">操作对象ID如记录ID</p>
+
+<p id="objectid_view">
+{{record.objectid|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_objecttype.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">操作对象类型</p>
+
+<p id="objecttype_view">
+{{record.objecttype|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_description.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">描述</p>
+
+<p id="description_view">
+{{record.description|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_ipaddressip.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">地址</p>
+
+<p id="ipaddressip_view">
+{{record.ipaddressip|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_createtime.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">创建时间</p>
+
+<p id="createtime_view">
+{{record.createtime|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_status.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">日志状态如正常、异常</p>
+
+<p id="status_view">
+{{record.status|safe }}
+</p>
+
+</div>
+{% endif %}
+<div class="modal-footer">
+              <button type="reset" class="btn modal-action modal-close btn-default waves-effect waves-light" data-bs-dismiss="modal">关闭</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block script-footer %}
+<script>
+  function myreset(){
+window.location.href= "/config_busi/logs";
+};
+if (document.getElementById("modalupdate")){
+document.getElementById("modalupdate").addEventListener("show.bs.modal",event=>{
+let _id = event.relatedTarget.getAttribute('data-bs-data');
+$("input[data-name=update_id]").val(_id);
+$.ajax({
+url: '/config_busi/logs',
+method: 'post',
+data: {optype:'get',_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value}, // JSON.stringify(data),
+dataType: 'json',
+success: resp => {
+
+{% if mcauthfield_id.mcauthview %}
+$("#id_upd").val(resp.ins.id);
+{% endif %}
+
+{% if mcauthfield_userid.mcauthview %}
+$("#userid_upd").val(resp.ins.userid);
+{% endif %}
+
+{% if mcauthfield_action.mcauthview %}
+$("#action_upd").val(resp.ins.action);
+{% endif %}
+
+{% if mcauthfield_objectid.mcauthview %}
+$("#objectid_upd").val(resp.ins.objectid);
+{% endif %}
+
+{% if mcauthfield_objecttype.mcauthview %}
+$("#objecttype_upd").val(resp.ins.objecttype);
+{% endif %}
+
+{% if mcauthfield_description.mcauthview %}
+$("#description_upd").val(resp.ins.description);
+{% endif %}
+
+{% if mcauthfield_ipaddressip.mcauthview %}
+$("#ipaddressip_upd").val(resp.ins.ipaddressip);
+{% endif %}
+
+{% if mcauthfield_createtime.mcauthview %}
+$("#createtime_upd").val(resp.ins.createtime);
+{% endif %}
+
+{% if mcauthfield_status.mcauthview %}
+$("#status_upd").val(resp.ins.status);
+{% endif %}
+
+},
+error: err => {
+},
+complete: res => {
+},
+})
+});
+};
+function upd(_id){
+let data = {
+optype:'get',
+_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value,
+
+{% if mcauthfield_id.mcauthchange %}
+id:$("#id_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_userid.mcauthchange %}
+userid:$("#userid_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_action.mcauthchange %}
+action:$("#action_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_objectid.mcauthchange %}
+objectid:$("#objectid_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_objecttype.mcauthchange %}
+objecttype:$("#objecttype_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_description.mcauthchange %}
+description:$("#description_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_ipaddressip.mcauthchange %}
+ipaddressip:$("#ipaddressip_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_createtime.mcauthchange %}
+createtime:$("#createtime_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_status.mcauthchange %}
+status:$("#status_upd]").val(),
+{% endif %}
+
+}
+$.ajax({
+url: '/config_busi/logs',
+method: 'post',
+data: data,
+dataType: 'json',
+success: resp => {
+console.log(resp);
+},
+error: err => {
+},
+complete: res => {
+},
+})
+};
+if (document.getElementById("modalpreview")) {
+document.getElementById("modalpreview").addEventListener("show.bs.modal",event=>{
+let _id = event.relatedTarget.getAttribute('data-bs-data');
+$("input[data-name=update_id]").val(_id);
+$.ajax({
+url: '/config_busi/logs',
+method: 'post',
+data: {optype:'get',_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value}, // JSON.stringify(data),
+dataType: 'json',
+success: resp => {
+
+
+
+{% if mcauthfield_id.mcauthview %}
+document.getElementById("id_view").innerHTML=resp.ins.id;
+{% endif %}
+
+
+
+
+{% if mcauthfield_userid.mcauthview %}
+document.getElementById("userid_view").innerHTML=resp.ins.userid;
+{% endif %}
+
+
+
+
+{% if mcauthfield_action.mcauthview %}
+document.getElementById("action_view").innerHTML=resp.ins.action;
+{% endif %}
+
+
+
+
+{% if mcauthfield_objectid.mcauthview %}
+document.getElementById("objectid_view").innerHTML=resp.ins.objectid;
+{% endif %}
+
+
+
+
+{% if mcauthfield_objecttype.mcauthview %}
+document.getElementById("objecttype_view").innerHTML=resp.ins.objecttype;
+{% endif %}
+
+
+
+
+{% if mcauthfield_description.mcauthview %}
+document.getElementById("description_view").innerHTML=resp.ins.description;
+{% endif %}
+
+
+
+
+{% if mcauthfield_ipaddressip.mcauthview %}
+document.getElementById("ipaddressip_view").innerHTML=resp.ins.ipaddressip;
+{% endif %}
+
+
+
+
+{% if mcauthfield_createtime.mcauthview %}
+document.getElementById("createtime_view").innerHTML=resp.ins.createtime;
+{% endif %}
+
+
+
+
+{% if mcauthfield_status.mcauthview %}
+document.getElementById("status_view").innerHTML=resp.ins.status;
+{% endif %}
+
+
+},
+error: err => {
+},
+complete: res => {
+},
+})
+});
+};
+if (document.getElementById("modalremove")) {
+document.getElementById("modalremove").addEventListener("show.bs.modal",event=>{
+let _id = event.relatedTarget.getAttribute('data-bs-data');
+$("input[data-name=remove]").val(_id);
+});
+};
+function del(_id){
+$.ajax({
+url: '/config_busi/logs',
+method: 'post',
+data: {optype:'del',_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value}, // JSON.stringify(data),
+dataType: 'json',
+success: resp => {
+console.log(resp);
+},
+error: err => {
+},
+complete: res => {
+},
+})
+};
+</script>
+{% endblock %}

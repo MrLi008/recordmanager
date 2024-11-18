@@ -1,0 +1,968 @@
+{% extends '../tp.html' %}
+
+{% block title %}
+用户表
+{% endblock %}
+
+{% block body %}
+  <div class="my-container-margin">
+    <div class="divider"></div>
+    {% csrf_token %}
+    <div class="section">
+      <h4>用户表</h4>
+      <div>
+        <div class="row">
+          
+          {% if has_add %}
+            <button type="button" data-bs-toggle="modal" data-bs-target="#modalinsert" class="waves-effect waves-light btn">添加</button>
+          {% endif %}
+          <div class="divider"></div>
+        
+        
+          
+<div class="col-sm-10">
+</div>
+<div class="col-sm-2">
+<a href="/config_visual/bi_tpusers" target="_blank" class="waves-effect waves-light btn">
+统计分析
+</a>
+</div>
+        </div>  
+        <div class="section">
+          {% if record %}
+            <h3>Empty Data</h3>
+          {% else %}
+          
+<!--展开-->
+<div >
+<div class="toggle-submenu" data-bs-target="#form_search">
+筛选
+</div>
+<div id="form_search">
+<div class="row custom-form">
+<form action="" method="get" class="form">
+
+
+
+
+<div class="form-group">
+<label for="username" class="col-form-label">用户名(username)</label>
+<input type="text" class="form-control"
+name="username_search"
+value="{{record.obj.username_search}}"
+id="username_search" class="col-form-control">
+</div>
+
+
+
+<div class="form-group">
+<label for="pkwkwasswkwkword" class="col-form-label">密码加密存储(pkwkwasswkwkword)</label>
+<input type="text" class="form-control"
+name="pkwkwasswkwkword_search"
+value="{{record.obj.pkwkwasswkwkword_search}}"
+id="pkwkwasswkwkword_search" class="col-form-control">
+</div>
+
+
+
+<div class="form-group">
+<label for="email" class="col-form-label">电子邮件(email)</label>
+<input type="text" class="form-control"
+name="email_search"
+value="{{record.obj.email_search}}"
+id="email_search" class="col-form-control">
+</div>
+
+
+
+<div class="form-group">
+<label for="phone" class="col-form-label">电话号码(phone)</label>
+<input type="text" class="form-control"
+name="phone_search"
+value="{{record.obj.phone_search}}"
+id="phone_search" class="col-form-control">
+</div>
+
+
+
+
+
+
+
+<div class="form-group">
+<label for="status" class="col-form-label">用户状态如活跃、禁用(status)</label>
+<input type="text" class="form-control"
+name="status_search"
+value="{{record.obj.status_search}}"
+id="status_search" class="col-form-control">
+</div>
+
+
+
+<div class="form-group">
+<label for="roleid" class="col-form-label">角色ID关联到角色(roleid)</label>
+<select name="roleid_search" id="roleid_search" class="col-form-control">
+<option value="" class="form-option">未选择</option>
+{% for record in data_mc_roles_57533 %}
+<option value="{{record.value}}" class="form-option" {%if record.value == obj.roleid_search %} selected="selected" {% endif %}>
+<p>{{record.value}}:{{record.label }}</p>
+</option>
+{% endfor %}
+</select>
+</div>
+
+
+<div class="form-group">
+<button type="submit" class="btn btn-primary" >
+<i class="fas fa-search">搜索</i>
+</button>
+<a type="reset" class="btn btn-default" href="/config_busi/users">
+<i class="fas fa-eraser">重置</i>
+</a>
+</div>
+</form>
+</div>
+</div>
+
+          </div>
+            <table class="table table-striped table-hover table-bordered">
+              <thead>
+                <tr>
+                  
+{% if mcauthfield_id.mcauthview %}
+<td>
+用户ID
+</td>
+{% endif %}
+
+{% if mcauthfield_username.mcauthview %}
+<td>
+用户名
+</td>
+{% endif %}
+
+{% if mcauthfield_pkwkwasswkwkword.mcauthview %}
+<td>
+密码加密存储
+</td>
+{% endif %}
+
+{% if mcauthfield_email.mcauthview %}
+<td>
+电子邮件
+</td>
+{% endif %}
+
+{% if mcauthfield_phone.mcauthview %}
+<td>
+电话号码
+</td>
+{% endif %}
+
+{% if mcauthfield_createtime.mcauthview %}
+<td>
+创建时间
+</td>
+{% endif %}
+
+{% if mcauthfield_lkwkwastlogkwkwintime.mcauthview %}
+<td>
+最后登录时间
+</td>
+{% endif %}
+
+{% if mcauthfield_status.mcauthview %}
+<td>
+用户状态如活跃、禁用
+</td>
+{% endif %}
+
+{% if mcauthfield_roleid.mcauthview %}
+<td>
+角色ID关联到角色
+</td>
+{% endif %}
+<th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for record in records %}
+                  <tr>
+                    
+ {% if mcauthfield_id.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.id}}">
+{{record.id }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_username.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.username}}">
+{{record.username }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_pkwkwasswkwkword.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.pkwkwasswkwkword}}">
+{{record.pkwkwasswkwkword }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_email.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.email}}">
+{{record.email }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_phone.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.phone}}">
+{{record.phone }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_createtime.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.createtime}}">
+{{record.createtime }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_lkwkwastlogkwkwintime.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.lkwkwastlogkwkwintime}}">
+{{record.lkwkwastlogkwkwintime }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_status.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.status}}">
+{{record.status }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_roleid.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.roleid}}">
+{{record.roleid }}
+</p>
+
+</td>
+{% endif %}
+ <td>
+                      {% if has_upd %}
+                        <button data-bs-data="{{ record.id }}" data-bs-toggle="modal" data-bs-target="#modalupdate">修改</button>
+                      {% endif %}
+                      {% if has_del %}
+                        <button data-bs-data="{{ record.id }}" data-bs-toggle="modal" data-bs-target="#modalremove">删除</button>
+                      {% endif %}
+                      {% if has_view %}
+                        <button data-bs-data="{{ record.id }}" data-bs-toggle="modal" data-bs-target="#modalpreview">查看</button>
+                      {% endif %}
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block modal %}
+  <!-- Modal Structure -->
+
+  {% if has_add %}
+    <div id="modalinsert" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">
+              <h4>添加</h4>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="custom-form">
+              <form action="" method="post" enctype="multipart/form-data" class="col s12">
+                <input type="text" name="optype" value="add" hidden />{% csrf_token %}<div class="">
+        {% if mcauthfield_id.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="id" class="form-label form-group">用户ID</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_username.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="username" class="form-label form-group">用户名</label>
+
+<input type="text" class="form-control form-control-lg" name="username" id="username"{% if not mcauthfield_username.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_pkwkwasswkwkword.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="pkwkwasswkwkword" class="form-label form-group">密码加密存储</label>
+
+<input type="text" class="form-control form-control-lg" name="pkwkwasswkwkword" id="pkwkwasswkwkword"{% if not mcauthfield_pkwkwasswkwkword.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_email.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="email" class="form-label form-group">电子邮件</label>
+
+<input type="text" class="form-control form-control-lg" name="email" id="email"{% if not mcauthfield_email.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_phone.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="phone" class="form-label form-group">电话号码</label>
+
+<input type="text" class="form-control form-control-lg" name="phone" id="phone"{% if not mcauthfield_phone.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_createtime.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="createtime" class="form-label form-group">创建时间</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_lkwkwastlogkwkwintime.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="lkwkwastlogkwkwintime" class="form-label form-group">最后登录时间</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_status.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="status" class="form-label form-group">用户状态如活跃、禁用</label>
+
+<input type="text" class="form-control form-control-lg" name="status" id="status"{% if not mcauthfield_status.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_roleid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="roleid" class="form-label form-group">角色ID关联到角色</label>
+
+<select class="form-select form-select-lg mb-3" name="roleid" id="roleid" {% if not mcauthfield_roleid.mcisblank %}required {% endif %} data-name="insert"> <option value="" selected>未选择</option> {% for record in data_mc_roles_57533 %} 
+<option value="{{record.value}}">
+
+<p>{{record.value}}:{{record.label }}</p>
+
+</option>
+ {% endfor %}
+</select>
+
+</div>
+        {% endif %}
+</div>
+                <div class="modal-footer">
+                  <button type="submit" class="modal-action modal-close btn-primary btn waves-effect waves-light">提交</button>
+                  <button type="reset" class="modal-action modal-close btn-default btn waves-effect waves-light" data-bs-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if has_upd %}
+    <div id="modalupdate" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">修改</div>
+          </div>
+          <div class="modal-body">
+            <div class="custom-form">
+              <form action="" method="post" enctype="multipart/form-data" class="col s12">
+                <input type="text" name="optype" value="upd" hidden />{% csrf_token %}<input type="text" name="_id_upd" value="" data-name="update_id" hidden />
+                <div class="">
+           {% if mcauthfield_id.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="id_upd"
+class="form-label form-group">
+用户ID(id)
+</label>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_username.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="username_upd"
+class="form-label form-group">
+用户名(username)
+</label>
+
+<input type="text" class="validate form-control form-control-lg"
+name="username"
+id="username_upd"
+placeholder="用户名"
+{% if not mcauthfield_username.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_username.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_pkwkwasswkwkword.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="pkwkwasswkwkword_upd"
+class="form-label form-group">
+密码加密存储(pkwkwasswkwkword)
+</label>
+
+<input type="text" class="validate form-control form-control-lg"
+name="pkwkwasswkwkword"
+id="pkwkwasswkwkword_upd"
+placeholder="密码加密存储"
+{% if not mcauthfield_pkwkwasswkwkword.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_pkwkwasswkwkword.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_email.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="email_upd"
+class="form-label form-group">
+电子邮件(email)
+</label>
+
+<input type="text" class="validate form-control form-control-lg"
+name="email"
+id="email_upd"
+placeholder="电子邮件"
+{% if not mcauthfield_email.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_email.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_phone.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="phone_upd"
+class="form-label form-group">
+电话号码(phone)
+</label>
+
+<input type="text" class="validate form-control form-control-lg"
+name="phone"
+id="phone_upd"
+placeholder="电话号码"
+{% if not mcauthfield_phone.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_phone.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_createtime.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="createtime_upd"
+class="form-label form-group">
+创建时间(createtime)
+</label>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_lkwkwastlogkwkwintime.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="lkwkwastlogkwkwintime_upd"
+class="form-label form-group">
+最后登录时间(lkwkwastlogkwkwintime)
+</label>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_status.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="status_upd"
+class="form-label form-group">
+用户状态如活跃、禁用(status)
+</label>
+
+<input type="text" class="validate form-control form-control-lg"
+name="status"
+id="status_upd"
+placeholder="用户状态如活跃、禁用"
+{% if not mcauthfield_status.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_status.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_roleid.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="roleid_upd"
+class="form-label form-group">
+角色ID关联到角色(roleid)
+</label>
+
+<select class="form-select form-select-lg mb-3" name="roleid"
+id="roleid_upd"
+{% if not mcauthfield_roleid.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_roleid.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+<option value="">未选择</option>
+{% for record in data_mc_roles_57533 %}
+
+<option value="{{record.value}}">
+
+<p>{{record.value}}:{{record.label }}</p>
+
+</option>
+
+{% endfor %}
+</select>
+
+</div>
+        {% endif %}
+</div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn modal-action modal-close btn-primary waves-effect waves-light">提交</button>
+                  <button type="reset" class="btn modal-action modal-close btn-default waves-effect waves-light" data-bs-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if has_del %}
+    <div id="modalremove" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">删除</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>确认删除这条记录吗?</p>
+          </div>
+          <div class="modal-footer">
+            <div class="row custom-form">
+              <form action="" method="post" enctype="multipart/form-data" class="col s12">
+                <input type="text" name="optype" value="del" hidden />{% csrf_token %}<input type="text" name="_id" value="" data-name="remove" hidden />
+
+                <div class="modal-footer">
+                  <button type="submit" class="btn modal-action modal-close btn-primary waves-effect waves-light">确认</button>
+                  <button type="reset" class="btn modal-action modal-close btn-default waves-effect waves-light" data-bs-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if has_view %}
+    <div id="modalpreview" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <h4>预览</h4>
+          <div class="">
+            
+{% if mcauthfield_id.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">用户ID</p>
+
+<p id="id_view">
+{{record.id|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_username.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">用户名</p>
+
+<p id="username_view">
+{{record.username|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_pkwkwasswkwkword.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">密码加密存储</p>
+
+<p id="pkwkwasswkwkword_view">
+{{record.pkwkwasswkwkword|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_email.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">电子邮件</p>
+
+<p id="email_view">
+{{record.email|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_phone.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">电话号码</p>
+
+<p id="phone_view">
+{{record.phone|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_createtime.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">创建时间</p>
+
+<p id="createtime_view">
+{{record.createtime|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_lkwkwastlogkwkwintime.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">最后登录时间</p>
+
+<p id="lkwkwastlogkwkwintime_view">
+{{record.lkwkwastlogkwkwintime|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_status.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">用户状态如活跃、禁用</p>
+
+<p id="status_view">
+{{record.status|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_roleid.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">角色ID关联到角色</p>
+
+<p id="roleid_view">
+{{record.roleid|safe }}
+</p>
+
+</div>
+{% endif %}
+<div class="modal-footer">
+              <button type="reset" class="btn modal-action modal-close btn-default waves-effect waves-light" data-bs-dismiss="modal">关闭</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block script-footer %}
+<script>
+  function myreset(){
+window.location.href= "/config_busi/users";
+};
+if (document.getElementById("modalupdate")){
+document.getElementById("modalupdate").addEventListener("show.bs.modal",event=>{
+let _id = event.relatedTarget.getAttribute('data-bs-data');
+$("input[data-name=update_id]").val(_id);
+$.ajax({
+url: '/config_busi/users',
+method: 'post',
+data: {optype:'get',_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value}, // JSON.stringify(data),
+dataType: 'json',
+success: resp => {
+
+{% if mcauthfield_id.mcauthview %}
+$("#id_upd").val(resp.ins.id);
+{% endif %}
+
+{% if mcauthfield_username.mcauthview %}
+$("#username_upd").val(resp.ins.username);
+{% endif %}
+
+{% if mcauthfield_pkwkwasswkwkword.mcauthview %}
+$("#pkwkwasswkwkword_upd").val(resp.ins.pkwkwasswkwkword);
+{% endif %}
+
+{% if mcauthfield_email.mcauthview %}
+$("#email_upd").val(resp.ins.email);
+{% endif %}
+
+{% if mcauthfield_phone.mcauthview %}
+$("#phone_upd").val(resp.ins.phone);
+{% endif %}
+
+{% if mcauthfield_createtime.mcauthview %}
+$("#createtime_upd").val(resp.ins.createtime);
+{% endif %}
+
+{% if mcauthfield_lkwkwastlogkwkwintime.mcauthview %}
+$("#lkwkwastlogkwkwintime_upd").val(resp.ins.lkwkwastlogkwkwintime);
+{% endif %}
+
+{% if mcauthfield_status.mcauthview %}
+$("#status_upd").val(resp.ins.status);
+{% endif %}
+
+{% if mcauthfield_roleid.mcauthview %}
+$("#roleid_upd").val(resp.ins.roleid);
+{% endif %}
+
+},
+error: err => {
+},
+complete: res => {
+},
+})
+});
+};
+function upd(_id){
+let data = {
+optype:'get',
+_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value,
+
+{% if mcauthfield_id.mcauthchange %}
+id:$("#id_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_username.mcauthchange %}
+username:$("#username_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_pkwkwasswkwkword.mcauthchange %}
+pkwkwasswkwkword:$("#pkwkwasswkwkword_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_email.mcauthchange %}
+email:$("#email_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_phone.mcauthchange %}
+phone:$("#phone_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_createtime.mcauthchange %}
+createtime:$("#createtime_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_lkwkwastlogkwkwintime.mcauthchange %}
+lkwkwastlogkwkwintime:$("#lkwkwastlogkwkwintime_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_status.mcauthchange %}
+status:$("#status_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_roleid.mcauthchange %}
+roleid:$("#roleid_upd]").val(),
+{% endif %}
+
+}
+$.ajax({
+url: '/config_busi/users',
+method: 'post',
+data: data,
+dataType: 'json',
+success: resp => {
+console.log(resp);
+},
+error: err => {
+},
+complete: res => {
+},
+})
+};
+if (document.getElementById("modalpreview")) {
+document.getElementById("modalpreview").addEventListener("show.bs.modal",event=>{
+let _id = event.relatedTarget.getAttribute('data-bs-data');
+$("input[data-name=update_id]").val(_id);
+$.ajax({
+url: '/config_busi/users',
+method: 'post',
+data: {optype:'get',_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value}, // JSON.stringify(data),
+dataType: 'json',
+success: resp => {
+
+
+
+{% if mcauthfield_id.mcauthview %}
+document.getElementById("id_view").innerHTML=resp.ins.id;
+{% endif %}
+
+
+
+
+{% if mcauthfield_username.mcauthview %}
+document.getElementById("username_view").innerHTML=resp.ins.username;
+{% endif %}
+
+
+
+
+{% if mcauthfield_pkwkwasswkwkword.mcauthview %}
+document.getElementById("pkwkwasswkwkword_view").innerHTML=resp.ins.pkwkwasswkwkword;
+{% endif %}
+
+
+
+
+{% if mcauthfield_email.mcauthview %}
+document.getElementById("email_view").innerHTML=resp.ins.email;
+{% endif %}
+
+
+
+
+{% if mcauthfield_phone.mcauthview %}
+document.getElementById("phone_view").innerHTML=resp.ins.phone;
+{% endif %}
+
+
+
+
+{% if mcauthfield_createtime.mcauthview %}
+document.getElementById("createtime_view").innerHTML=resp.ins.createtime;
+{% endif %}
+
+
+
+
+{% if mcauthfield_lkwkwastlogkwkwintime.mcauthview %}
+document.getElementById("lkwkwastlogkwkwintime_view").innerHTML=resp.ins.lkwkwastlogkwkwintime;
+{% endif %}
+
+
+
+
+{% if mcauthfield_status.mcauthview %}
+document.getElementById("status_view").innerHTML=resp.ins.status;
+{% endif %}
+
+
+
+
+{% if mcauthfield_roleid.mcauthview %}
+document.getElementById("roleid_view").innerHTML=resp.ins.roleid;
+{% endif %}
+
+
+},
+error: err => {
+},
+complete: res => {
+},
+})
+});
+};
+if (document.getElementById("modalremove")) {
+document.getElementById("modalremove").addEventListener("show.bs.modal",event=>{
+let _id = event.relatedTarget.getAttribute('data-bs-data');
+$("input[data-name=remove]").val(_id);
+});
+};
+function del(_id){
+$.ajax({
+url: '/config_busi/users',
+method: 'post',
+data: {optype:'del',_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value}, // JSON.stringify(data),
+dataType: 'json',
+success: resp => {
+console.log(resp);
+},
+error: err => {
+},
+complete: res => {
+},
+})
+};
+</script>
+{% endblock %}

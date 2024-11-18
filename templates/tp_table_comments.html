@@ -1,0 +1,122 @@
+
+<h1>
+语法介绍：
+</h1>
+<p>
+参考下述格式，以及附带的模板，实现自定义表格内容展示
+</p>
+<p>
+默认使用系统提供的接口展示所有的字段和数值，需要定制的可以在此基础上做修改
+</p>
+{% if ins%}
+<table class="table table-bordered table-hover table-striped text-nowrap">
+<thead>
+<tr>
+
+<th class="text-nowrap-cell">
+评论ID
+</th>
+
+<th class="text-nowrap-cell">
+记录ID关联到记录
+</th>
+
+<th class="text-nowrap-cell">
+用户ID关联到用户
+</th>
+
+<th class="text-nowrap-cell">
+评论内容
+</th>
+
+<th class="text-nowrap-cell">
+创建时间
+</th>
+
+<th class="text-nowrap-cell">
+评论状态如审核通过、待审核、删除
+</th>
+
+<th class="text-nowrap-cell">
+父评论ID用于构建评论树
+</th>
+
+<th class="text-nowrap-cell">
+点赞数
+</th>
+
+<th>
+<span class="text-nowrap">
+操作
+</span>
+</th>
+</tr>
+</thead>
+<tbody>
+{% for record in ins.records%}
+<tr>
+
+<td class="text-nowrap-cell">
+<span title="{{record.id}}">
+{{record.id|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.reckwkwordid}}">
+{{record.reckwkwordid|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.userid}}">
+{{record.userid|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.content}}">
+{{record.content|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.createtime}}">
+{{record.createtime|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.status}}">
+{{record.status|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.parentid}}">
+{{record.parentid|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.likes}}">
+{{record.likes|truncatechars:20}}
+</span>
+</td>
+
+<td>
+<a href="/config_busi/comments?id_search={{record..id}}" class="btn btn-sm btn-primary">
+详情
+</a>
+</td>
+</tr>
+{% endfor%}
+</tbody>
+</table>
+{% else%}
+<h3>
+Empty Data
+</h3>
+{% endif%}
+
+In table....

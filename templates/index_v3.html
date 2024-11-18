@@ -1,0 +1,250 @@
+{% extends 'tp_3.html' %}
+
+{% block title %}
+beta_基于django的记录管理系统
+
+{% endblock %}
+{% block header-image %}
+{% include 'header-image.html' %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="my-container-margin">
+    <div class="row">
+        <div class="col s6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="8349-tab" data-bs-toggle="tab"
+data-bs-target="#8349-tab-pane"
+type="button" role="tab" aria-controls="8349-tab-pane" aria-selected="true">
+系统管理员管理
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="8348-tab" data-bs-toggle="tab"
+data-bs-target="#8348-tab-pane"
+type="button" role="tab" aria-controls="8348-tab-pane" aria-selected="true">
+权限表管理
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="8347-tab" data-bs-toggle="tab"
+data-bs-target="#8347-tab-pane"
+type="button" role="tab" aria-controls="8347-tab-pane" aria-selected="true">
+日志表管理
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="8346-tab" data-bs-toggle="tab"
+data-bs-target="#8346-tab-pane"
+type="button" role="tab" aria-controls="8346-tab-pane" aria-selected="true">
+评论表管理
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="8345-tab" data-bs-toggle="tab"
+data-bs-target="#8345-tab-pane"
+type="button" role="tab" aria-controls="8345-tab-pane" aria-selected="true">
+记录附件表管理
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="8344-tab" data-bs-toggle="tab"
+data-bs-target="#8344-tab-pane"
+type="button" role="tab" aria-controls="8344-tab-pane" aria-selected="true">
+记录表管理
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="8343-tab" data-bs-toggle="tab"
+data-bs-target="#8343-tab-pane"
+type="button" role="tab" aria-controls="8343-tab-pane" aria-selected="true">
+记录分类表管理
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="8342-tab" data-bs-toggle="tab"
+data-bs-target="#8342-tab-pane"
+type="button" role="tab" aria-controls="8342-tab-pane" aria-selected="true">
+角色表管理
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="8341-tab" data-bs-toggle="tab"
+data-bs-target="#8341-tab-pane"
+type="button" role="tab" aria-controls="8341-tab-pane" aria-selected="true">
+用户表管理
+</button>
+</li>
+
+</ul>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="my-container-margin">
+    <div class="tab-content" id="myTabContent">
+        
+<div class="tab-pane fade show active" id="8349-tab-pane" role="tabpanel"
+aria-labelledby="8349-tab"
+tabindex="0">
+<h2>业务管理</h2>
+<a href="/config_busi/8349" target="_blank">
+进入业务管理中心
+</a>
+<div>
+数据分析统计
+</div>
+<div>
+{% include 'indextab.html' with tab=tab_mc_supermanager %}
+</div>
+</div>
+
+<div class="tab-pane fade show active" id="8348-tab-pane" role="tabpanel"
+aria-labelledby="8348-tab"
+tabindex="0">
+<h2>业务管理</h2>
+<a href="/config_busi/8348" target="_blank">
+进入业务管理中心
+</a>
+<div>
+数据分析统计
+</div>
+<div>
+{% include 'indextab.html' with tab=tab_mc_permkwkwissions %}
+</div>
+</div>
+
+<div class="tab-pane fade show active" id="8347-tab-pane" role="tabpanel"
+aria-labelledby="8347-tab"
+tabindex="0">
+<h2>业务管理</h2>
+<a href="/config_busi/8347" target="_blank">
+进入业务管理中心
+</a>
+<div>
+数据分析统计
+</div>
+<div>
+{% include 'indextab.html' with tab=tab_mc_logs %}
+</div>
+</div>
+
+<div class="tab-pane fade show active" id="8346-tab-pane" role="tabpanel"
+aria-labelledby="8346-tab"
+tabindex="0">
+<h2>业务管理</h2>
+<a href="/config_busi/8346" target="_blank">
+进入业务管理中心
+</a>
+<div>
+数据分析统计
+</div>
+<div>
+{% include 'indextab.html' with tab=tab_mc_comments %}
+</div>
+</div>
+
+<div class="tab-pane fade show active" id="8345-tab-pane" role="tabpanel"
+aria-labelledby="8345-tab"
+tabindex="0">
+<h2>业务管理</h2>
+<a href="/config_busi/8345" target="_blank">
+进入业务管理中心
+</a>
+<div>
+数据分析统计
+</div>
+<div>
+{% include 'indextab.html' with tab=tab_mc_reckwkwordattachments %}
+</div>
+</div>
+
+<div class="tab-pane fade show active" id="8344-tab-pane" role="tabpanel"
+aria-labelledby="8344-tab"
+tabindex="0">
+<h2>业务管理</h2>
+<a href="/config_busi/8344" target="_blank">
+进入业务管理中心
+</a>
+<div>
+数据分析统计
+</div>
+<div>
+{% include 'indextab.html' with tab=tab_mc_reckwkwords %}
+</div>
+</div>
+
+<div class="tab-pane fade show active" id="8343-tab-pane" role="tabpanel"
+aria-labelledby="8343-tab"
+tabindex="0">
+<h2>业务管理</h2>
+<a href="/config_busi/8343" target="_blank">
+进入业务管理中心
+</a>
+<div>
+数据分析统计
+</div>
+<div>
+{% include 'indextab.html' with tab=tab_mc_reckwkwordcategkwkwories %}
+</div>
+</div>
+
+<div class="tab-pane fade show active" id="8342-tab-pane" role="tabpanel"
+aria-labelledby="8342-tab"
+tabindex="0">
+<h2>业务管理</h2>
+<a href="/config_busi/8342" target="_blank">
+进入业务管理中心
+</a>
+<div>
+数据分析统计
+</div>
+<div>
+{% include 'indextab.html' with tab=tab_mc_roles %}
+</div>
+</div>
+
+<div class="tab-pane fade show active" id="8341-tab-pane" role="tabpanel"
+aria-labelledby="8341-tab"
+tabindex="0">
+<h2>业务管理</h2>
+<a href="/config_busi/8341" target="_blank">
+进入业务管理中心
+</a>
+<div>
+数据分析统计
+</div>
+<div>
+{% include 'indextab.html' with tab=tab_mc_users %}
+</div>
+</div>
+
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+CopyRight ©beta_基于django的记录管理系统
+
+{% endblock %}
+
+{% block script-footer %}
+
+{% endblock %}

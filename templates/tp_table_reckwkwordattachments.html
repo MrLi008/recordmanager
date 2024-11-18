@@ -1,0 +1,132 @@
+
+<h1>
+语法介绍：
+</h1>
+<p>
+参考下述格式，以及附带的模板，实现自定义表格内容展示
+</p>
+<p>
+默认使用系统提供的接口展示所有的字段和数值，需要定制的可以在此基础上做修改
+</p>
+{% if ins%}
+<table class="table table-bordered table-hover table-striped text-nowrap">
+<thead>
+<tr>
+
+<th class="text-nowrap-cell">
+附件ID
+</th>
+
+<th class="text-nowrap-cell">
+记录ID关联到记录
+</th>
+
+<th class="text-nowrap-cell">
+文件名
+</th>
+
+<th class="text-nowrap-cell">
+文件存储路径
+</th>
+
+<th class="text-nowrap-cell">
+文件大小
+</th>
+
+<th class="text-nowrap-cell">
+文件类型
+</th>
+
+<th class="text-nowrap-cell">
+上传时间
+</th>
+
+<th class="text-nowrap-cell">
+上传者ID关联到用户
+</th>
+
+<th class="text-nowrap-cell">
+描述
+</th>
+
+<th>
+<span class="text-nowrap">
+操作
+</span>
+</th>
+</tr>
+</thead>
+<tbody>
+{% for record in ins.records%}
+<tr>
+
+<td class="text-nowrap-cell">
+<span title="{{record.id}}">
+{{record.id|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.reckwkwordid}}">
+{{record.reckwkwordid|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.filename}}">
+{{record.filename|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.filepath}}">
+{{record.filepath|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.filesize}}">
+{{record.filesize|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.filetype}}">
+{{record.filetype|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.uploadtime}}">
+{{record.uploadtime|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.uploaderid}}">
+{{record.uploaderid|truncatechars:20}}
+</span>
+</td>
+
+<td class="text-nowrap-cell">
+<span title="{{record.description}}">
+{{record.description|truncatechars:20}}
+</span>
+</td>
+
+<td>
+<a href="/config_busi/reckwkwordattachments?id_search={{record..id}}" class="btn btn-sm btn-primary">
+详情
+</a>
+</td>
+</tr>
+{% endfor%}
+</tbody>
+</table>
+{% else%}
+<h3>
+Empty Data
+</h3>
+{% endif%}
+
+In table....

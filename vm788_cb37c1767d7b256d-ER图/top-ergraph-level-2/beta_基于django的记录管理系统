@@ -1,0 +1,51 @@
+// beta_基于django的记录管理系统
+digraph "beta_基于django的记录管理系统" {
+	graph [fontname=SimSun]
+	node [fontname=SimSun style=filled]
+	edge [dir=none fontname=SimSun style=solid]
+	8349 [label="系统管理员" color=black fillcolor=lightpink shape=box]
+	8348 [label="权限表" color=black fillcolor=lightpink shape=box]
+	8347 [label="日志表" color=black fillcolor=lightpink shape=box]
+	8346 [label="评论表" color=black fillcolor=lightpink shape=box]
+	8345 [label="记录附件表" color=black fillcolor=lightpink shape=box]
+	8344 [label="记录表" color=black fillcolor=lightpink shape=box]
+	8343 [label="记录分类表" color=black fillcolor=lightpink shape=box]
+	8342 [label="角色表" color=black fillcolor=lightpink shape=box]
+	8341 [label="用户表" color=black fillcolor=lightpink shape=box]
+	3586 [label="关联
+【用户名】" color=black fillcolor=bisque shape=diamond]
+	8341 -> 3586 [label=1 shape=diamond]
+	3586 -> 8347 [label=M shape=diamond]
+	3584 [label="关联
+【记录标题】" color=black fillcolor=bisque shape=diamond]
+	8344 -> 3584 [label=1 shape=diamond]
+	3584 -> 8346 [label=M shape=diamond]
+	3585 [label="关联
+【用户名】" color=black fillcolor=bisque shape=diamond]
+	8341 -> 3585 [label=1 shape=diamond]
+	3585 -> 8346 [label=M shape=diamond]
+	3582 [label="关联
+【记录标题】" color=black fillcolor=bisque shape=diamond]
+	8344 -> 3582 [label=1 shape=diamond]
+	3582 -> 8345 [label=M shape=diamond]
+	3583 [label="关联
+【用户名】" color=black fillcolor=bisque shape=diamond]
+	8341 -> 3583 [label=1 shape=diamond]
+	3583 -> 8345 [label=M shape=diamond]
+	3580 [label="关联
+【分类名称】" color=black fillcolor=bisque shape=diamond]
+	8343 -> 3580 [label=1 shape=diamond]
+	3580 -> 8344 [label=M shape=diamond]
+	3581 [label="关联
+【用户名】" color=black fillcolor=bisque shape=diamond]
+	8341 -> 3581 [label=1 shape=diamond]
+	3581 -> 8344 [label=M shape=diamond]
+	3579 [label="关联
+【分类名称】" color=black fillcolor=bisque shape=diamond]
+	8343 -> 3579 [label=1 shape=diamond]
+	3579 -> 8343 [label=M shape=diamond]
+	3578 [label="关联
+【角色名称】" color=black fillcolor=bisque shape=diamond]
+	8342 -> 3578 [label=1 shape=diamond]
+	3578 -> 8341 [label=M shape=diamond]
+}

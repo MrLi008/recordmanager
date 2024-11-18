@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>beta_基于django的记录管理系统</title>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/echarts.js"></script>
+    <style>
+      body {
+        color: black;
+      }
+      .bkimg {
+        background-image: url('/static/imgs/default.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: opacity(90%);
+        filter: brightness(10%);
+        overflow: hidden;
+      }
+      .myechart_size {
+        height: 450px;
+      }
+      .myechart_size-height-full {
+        with: 95%;
+        height: 480px;
+      }
+    </style>
+    
+    {% include 'config_visual/function_echart.html' %}
+  </head>
+  <body>
+    <div class="bg-image" style="{% include 'config_visual/background.html' %}">
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <h3 style="color:black; font-size: 30px; font-weight: bold;">beta_基于django的记录管理系统 记录附件表(reckwkwordattachments)</h3>
+        </div>
+      </div>
+      {% csrf_token %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reckwkwordattachments_uploadtime_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 上传时间 ******************** pie_v2***/ init_echart("echart_reckwkwordattachments_uploadtime_pie_v2",'reckwkwordattachments.uploadtime_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reckwkwordattachments_uploadtime_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 上传时间 ******************** pie_v1***/ init_echart("echart_reckwkwordattachments_uploadtime_pie_v1",'reckwkwordattachments.uploadtime_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reckwkwordattachments_uploadtime_pie" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 上传时间 ******************** pie***/ init_echart("echart_reckwkwordattachments_uploadtime_pie",'reckwkwordattachments.uploadtime_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_reckwkwordattachments_uploadtime_line" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 上传时间 ******************** line***/ init_echart("echart_reckwkwordattachments_uploadtime_line",'reckwkwordattachments.uploadtime_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reckwkwordattachments_uploadtime_bar" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 上传时间 ******************** bar***/ init_echart("echart_reckwkwordattachments_uploadtime_bar",'reckwkwordattachments.uploadtime_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reckwkwordattachments_uploadtime_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 上传时间 ******************** bar_v1***/ init_echart("echart_reckwkwordattachments_uploadtime_bar_v1",'reckwkwordattachments.uploadtime_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reckwkwordattachments_description_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 描述 ******************** pie_v2***/ init_echart("echart_reckwkwordattachments_description_pie_v2",'reckwkwordattachments.description_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reckwkwordattachments_description_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 描述 ******************** pie_v1***/ init_echart("echart_reckwkwordattachments_description_pie_v1",'reckwkwordattachments.description_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reckwkwordattachments_description_pie" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 描述 ******************** pie***/ init_echart("echart_reckwkwordattachments_description_pie",'reckwkwordattachments.description_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_reckwkwordattachments_description_line" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 描述 ******************** line***/ init_echart("echart_reckwkwordattachments_description_line",'reckwkwordattachments.description_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reckwkwordattachments_description_bar" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 描述 ******************** bar***/ init_echart("echart_reckwkwordattachments_description_bar",'reckwkwordattachments.description_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reckwkwordattachments_description_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 记录附件表 描述 ******************** bar_v1***/ init_echart("echart_reckwkwordattachments_description_bar_v1",'reckwkwordattachments.description_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+    </div>
+  </body>
+</html>

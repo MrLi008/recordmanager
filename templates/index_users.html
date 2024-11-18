@@ -1,0 +1,210 @@
+{% extends 'tp.html' %}
+
+{% block title %}
+beta_基于django的记录管理系统
+
+{% endblock %}
+{% block header-image %}
+
+{% endblock %}
+
+{% block body %}
+
+<h1 hidden>
+    标注-用于区分表名
+用户表
+</h1>
+
+<div class="container my-container-margin">
+    <div class="row">
+        <div class="col s6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                用户表
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container my-container-margin">
+    <div class="tab-content" id="myTabContent">
+        
+<div class="tab-pane fade show " id="t-8349-tab-pane" role="tabpanel" aria-labelledby="t-8349-tab" tabindex="0">
+系统管理员
+<div>
+<a href="/config_busi/supermanager" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8348-tab-pane" role="tabpanel" aria-labelledby="t-8348-tab" tabindex="0">
+权限表
+<div>
+<a href="/config_busi/permkwkwissions" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8347-tab-pane" role="tabpanel" aria-labelledby="t-8347-tab" tabindex="0">
+日志表
+<div>
+<a href="/config_busi/logs" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8346-tab-pane" role="tabpanel" aria-labelledby="t-8346-tab" tabindex="0">
+评论表
+<div>
+<a href="/config_busi/comments" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8345-tab-pane" role="tabpanel" aria-labelledby="t-8345-tab" tabindex="0">
+记录附件表
+<div>
+<a href="/config_busi/reckwkwordattachments" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8344-tab-pane" role="tabpanel" aria-labelledby="t-8344-tab" tabindex="0">
+记录表
+<div>
+<a href="/config_busi/reckwkwords" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8343-tab-pane" role="tabpanel" aria-labelledby="t-8343-tab" tabindex="0">
+记录分类表
+<div>
+<a href="/config_busi/reckwkwordcategkwkwories" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8342-tab-pane" role="tabpanel" aria-labelledby="t-8342-tab" tabindex="0">
+角色表
+<div>
+<a href="/config_busi/roles" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-8341-tab-pane" role="tabpanel" aria-labelledby="t-8341-tab" tabindex="0">
+用户表
+<div>
+<a href="/config_busi/users" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+
+    </div>
+</div>
+
+
+        {% if mcauthfield_id.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="id" class="form-label form-group">用户ID</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_username.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="username" class="form-label form-group">用户名</label>
+
+<input type="text" class="form-control form-control-lg" name="username" id="username"{% if not mcauthfield_username.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_pkwkwasswkwkword.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="pkwkwasswkwkword" class="form-label form-group">密码加密存储</label>
+
+<input type="text" class="form-control form-control-lg" name="pkwkwasswkwkword" id="pkwkwasswkwkword"{% if not mcauthfield_pkwkwasswkwkword.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_email.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="email" class="form-label form-group">电子邮件</label>
+
+<input type="text" class="form-control form-control-lg" name="email" id="email"{% if not mcauthfield_email.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_phone.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="phone" class="form-label form-group">电话号码</label>
+
+<input type="text" class="form-control form-control-lg" name="phone" id="phone"{% if not mcauthfield_phone.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_createtime.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="createtime" class="form-label form-group">创建时间</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_lkwkwastlogkwkwintime.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="lkwkwastlogkwkwintime" class="form-label form-group">最后登录时间</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_status.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="status" class="form-label form-group">用户状态如活跃、禁用</label>
+
+<input type="text" class="form-control form-control-lg" name="status" id="status"{% if not mcauthfield_status.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_roleid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="roleid" class="form-label form-group">角色ID关联到角色</label>
+
+<select class="form-select form-select-lg mb-3" name="roleid" id="roleid" {% if not mcauthfield_roleid.mcisblank %}required {% endif %} data-name="insert"> <option value="" selected>未选择</option> {% for record in data_mc_roles_57533 %} 
+<option value="{{record.value}}">
+
+<p>{{record.value}}:{{record.label }}</p>
+
+</option>
+ {% endfor %}
+</select>
+
+</div>
+        {% endif %}
+
+{% endblock %}
+
+{% block footer %}
+
+CopyRight ©beta_基于django的记录管理系统 vm788_cb37c1767d7b256d
+
+{% endblock %}
+
+{% block script-footer %}
+
+{% endblock %}
+

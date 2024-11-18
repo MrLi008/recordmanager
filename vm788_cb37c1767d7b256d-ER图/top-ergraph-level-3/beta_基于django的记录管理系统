@@ -1,0 +1,94 @@
+// beta_基于django的记录管理系统
+digraph "beta_基于django的记录管理系统" {
+	graph [fontname=SimSun]
+	node [fontname=SimSun style=filled]
+	edge [dir=none fontname=SimSun style=solid]
+	8349 [label="【系统管理员】
+    管理员姓名" color=black fillcolor=lightpink shape=box]
+	8348 [label="【权限表】
+    权限ID
+权限名称
+描述
+创建时间
+更新时间
+所属系统模块
+动作类型如增删改查
+资源标识
+权限状态如启用、禁用" color=black fillcolor=lightpink shape=box]
+	8347 [label="【日志表】
+    日志ID
+用户ID关联到用户
+操作类型
+操作对象ID如记录ID
+操作对象类型
+描述
+地址
+创建时间
+日志状态如正常、异常" color=black fillcolor=lightpink shape=box]
+	8346 [label="【评论表】
+    评论ID
+记录ID关联到记录
+用户ID关联到用户
+评论内容
+创建时间
+评论状态如审核通过、待审核、删除
+父评论ID用于构建评论树
+点赞数" color=black fillcolor=lightpink shape=box]
+	8345 [label="【记录附件表】
+    附件ID
+记录ID关联到记录
+文件名
+文件存储路径
+文件大小
+文件类型
+上传时间
+上传者ID关联到用户
+描述" color=black fillcolor=lightpink shape=box]
+	8344 [label="【记录表】
+    记录ID
+记录标题
+记录内容
+分类ID关联到记录分类
+创建者ID关联到用户
+创建时间
+更新时间
+记录状态如公开、私有
+浏览次数" color=black fillcolor=lightpink shape=box]
+	8343 [label="【记录分类表】
+    分类ID
+分类名称
+关联父分类ID用于构建分类树
+描述
+创建时间
+更新时间
+显示顺序
+分类状态如启用、禁用" color=black fillcolor=lightpink shape=box]
+	8342 [label="【角色表】
+    角色ID
+角色名称
+描述
+创建时间
+更新时间
+权限如JSON格式
+是否为默认角色
+角色状态如启用、禁用" color=black fillcolor=lightpink shape=box]
+	8341 [label="【用户表】
+    用户ID
+用户名
+密码加密存储
+电子邮件
+电话号码
+创建时间
+最后登录时间
+用户状态如活跃、禁用
+角色ID关联到角色" color=black fillcolor=lightpink shape=box]
+	8341 -> 8347 [label="用户名" shape=diamond]
+	8344 -> 8346 [label="记录标题" shape=diamond]
+	8341 -> 8346 [label="用户名" shape=diamond]
+	8344 -> 8345 [label="记录标题" shape=diamond]
+	8341 -> 8345 [label="用户名" shape=diamond]
+	8343 -> 8344 [label="分类名称" shape=diamond]
+	8341 -> 8344 [label="用户名" shape=diamond]
+	8343 -> 8343 [label="分类名称" shape=diamond]
+	8342 -> 8341 [label="角色名称" shape=diamond]
+}

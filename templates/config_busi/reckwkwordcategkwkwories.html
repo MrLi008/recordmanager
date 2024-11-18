@@ -1,0 +1,880 @@
+{% extends '../tp.html' %}
+
+{% block title %}
+记录分类表
+{% endblock %}
+
+{% block body %}
+  <div class="my-container-margin">
+    <div class="divider"></div>
+    {% csrf_token %}
+    <div class="section">
+      <h4>记录分类表</h4>
+      <div>
+        <div class="row">
+          
+          {% if has_add %}
+            <button type="button" data-bs-toggle="modal" data-bs-target="#modalinsert" class="waves-effect waves-light btn">添加</button>
+          {% endif %}
+          <div class="divider"></div>
+        
+        
+          
+<div class="col-sm-10">
+</div>
+<div class="col-sm-2">
+<a href="/config_visual/bi_tpreckwkwordcategkwkwories" target="_blank" class="waves-effect waves-light btn">
+统计分析
+</a>
+</div>
+        </div>  
+        <div class="section">
+          {% if record %}
+            <h3>Empty Data</h3>
+          {% else %}
+          
+<!--展开-->
+<div >
+<div class="toggle-submenu" data-bs-target="#form_search">
+筛选
+</div>
+<div id="form_search">
+<div class="row custom-form">
+<form action="" method="get" class="form">
+
+
+
+
+<div class="form-group">
+<label for="name" class="col-form-label">分类名称(name)</label>
+<input type="text" class="form-control"
+name="name_search"
+value="{{record.obj.name_search}}"
+id="name_search" class="col-form-control">
+</div>
+
+
+
+<div class="form-group">
+<label for="parentid" class="col-form-label">关联父分类ID用于构建分类树(parentid)</label>
+<select name="parentid_search" id="parentid_search" class="col-form-control">
+<option value="" class="form-option">未选择</option>
+{% for record in data_mc_reckwkwordcategkwkwories_57544 %}
+<option value="{{record.value}}" class="form-option" {%if record.value == obj.parentid_search %} selected="selected" {% endif %}>
+<p>{{record.value}}:{{record.label }}</p>
+</option>
+{% endfor %}
+</select>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="form-group">
+<label for="kwkwordernumber" class="col-form-label">显示顺序(kwkwordernumber)</label>
+<input type="text" class="form-control"
+name="kwkwordernumber_search"
+value="{{record.obj.kwkwordernumber_search}}"
+id="kwkwordernumber_search" class="col-form-control">
+</div>
+
+
+
+<div class="form-group">
+<label for="status" class="col-form-label">分类状态如启用、禁用(status)</label>
+<input type="text" class="form-control"
+name="status_search"
+value="{{record.obj.status_search}}"
+id="status_search" class="col-form-control">
+</div>
+
+
+<div class="form-group">
+<button type="submit" class="btn btn-primary" >
+<i class="fas fa-search">搜索</i>
+</button>
+<a type="reset" class="btn btn-default" href="/config_busi/reckwkwordcategkwkwories">
+<i class="fas fa-eraser">重置</i>
+</a>
+</div>
+</form>
+</div>
+</div>
+
+          </div>
+            <table class="table table-striped table-hover table-bordered">
+              <thead>
+                <tr>
+                  
+{% if mcauthfield_id.mcauthview %}
+<td>
+分类ID
+</td>
+{% endif %}
+
+{% if mcauthfield_name.mcauthview %}
+<td>
+分类名称
+</td>
+{% endif %}
+
+{% if mcauthfield_parentid.mcauthview %}
+<td>
+关联父分类ID用于构建分类树
+</td>
+{% endif %}
+
+{% if mcauthfield_description.mcauthview %}
+<td>
+描述
+</td>
+{% endif %}
+
+{% if mcauthfield_createtime.mcauthview %}
+<td>
+创建时间
+</td>
+{% endif %}
+
+{% if mcauthfield_updatetime.mcauthview %}
+<td>
+更新时间
+</td>
+{% endif %}
+
+{% if mcauthfield_kwkwordernumber.mcauthview %}
+<td>
+显示顺序
+</td>
+{% endif %}
+
+{% if mcauthfield_status.mcauthview %}
+<td>
+分类状态如启用、禁用
+</td>
+{% endif %}
+<th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for record in records %}
+                  <tr>
+                    
+ {% if mcauthfield_id.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.id}}">
+{{record.id }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_name.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.name}}">
+{{record.name }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_parentid.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.parentid}}">
+{{record.parentid }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_description.mcauthview %}
+<td class="text-nowrap-cell">
+
+{% if record.description %}
+{{record.description.name}}
+<p title="{{record.description}}">
+{{record.description|truncatechars:20}}
+</p>
+{% endif %}
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_createtime.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.createtime}}">
+{{record.createtime }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_updatetime.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.updatetime}}">
+{{record.updatetime }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_kwkwordernumber.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.kwkwordernumber}}">
+{{record.kwkwordernumber }}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_status.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.status}}">
+{{record.status }}
+</p>
+
+</td>
+{% endif %}
+ <td>
+                      {% if has_upd %}
+                        <button data-bs-data="{{ record.id }}" data-bs-toggle="modal" data-bs-target="#modalupdate">修改</button>
+                      {% endif %}
+                      {% if has_del %}
+                        <button data-bs-data="{{ record.id }}" data-bs-toggle="modal" data-bs-target="#modalremove">删除</button>
+                      {% endif %}
+                      {% if has_view %}
+                        <button data-bs-data="{{ record.id }}" data-bs-toggle="modal" data-bs-target="#modalpreview">查看</button>
+                      {% endif %}
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block modal %}
+  <!-- Modal Structure -->
+
+  {% if has_add %}
+    <div id="modalinsert" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">
+              <h4>添加</h4>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="custom-form">
+              <form action="" method="post" enctype="multipart/form-data" class="col s12">
+                <input type="text" name="optype" value="add" hidden />{% csrf_token %}<div class="">
+        {% if mcauthfield_id.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="id" class="form-label form-group">分类ID</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_name.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="name" class="form-label form-group">分类名称</label>
+
+<input type="text" class="form-control form-control-lg" name="name" id="name"{% if not mcauthfield_name.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_parentid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="parentid" class="form-label form-group">关联父分类ID用于构建分类树</label>
+
+<select class="form-select form-select-lg mb-3" name="parentid" id="parentid" {% if not mcauthfield_parentid.mcisblank %}required {% endif %} data-name="insert"> <option value="" selected>未选择</option> {% for record in data_mc_reckwkwordcategkwkwories_57544 %} 
+<option value="{{record.value}}">
+
+<p>{{record.value}}:{{record.label }}</p>
+
+</option>
+ {% endfor %}
+</select>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_description.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="description" class="form-label form-group">描述</label>
+
+<textarea class="form-control form-control-lg" name="description" id="description" {% if not mcauthfield_description.mcisblank %}required {% endif %}data-name="insert"></textarea>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_createtime.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="createtime" class="form-label form-group">创建时间</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_updatetime.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="updatetime" class="form-label form-group">更新时间</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_kwkwordernumber.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="kwkwordernumber" class="form-label form-group">显示顺序</label>
+
+<input type="text" class="form-control form-control-lg" name="kwkwordernumber" id="kwkwordernumber"{% if not mcauthfield_kwkwordernumber.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_status.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="status" class="form-label form-group">分类状态如启用、禁用</label>
+
+<input type="text" class="form-control form-control-lg" name="status" id="status"{% if not mcauthfield_status.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+</div>
+                <div class="modal-footer">
+                  <button type="submit" class="modal-action modal-close btn-primary btn waves-effect waves-light">提交</button>
+                  <button type="reset" class="modal-action modal-close btn-default btn waves-effect waves-light" data-bs-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if has_upd %}
+    <div id="modalupdate" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">修改</div>
+          </div>
+          <div class="modal-body">
+            <div class="custom-form">
+              <form action="" method="post" enctype="multipart/form-data" class="col s12">
+                <input type="text" name="optype" value="upd" hidden />{% csrf_token %}<input type="text" name="_id_upd" value="" data-name="update_id" hidden />
+                <div class="">
+           {% if mcauthfield_id.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="id_upd"
+class="form-label form-group">
+分类ID(id)
+</label>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_name.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="name_upd"
+class="form-label form-group">
+分类名称(name)
+</label>
+
+<input type="text" class="validate form-control form-control-lg"
+name="name"
+id="name_upd"
+placeholder="分类名称"
+{% if not mcauthfield_name.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_name.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_parentid.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="parentid_upd"
+class="form-label form-group">
+关联父分类ID用于构建分类树(parentid)
+</label>
+
+<select class="form-select form-select-lg mb-3" name="parentid"
+id="parentid_upd"
+{% if not mcauthfield_parentid.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_parentid.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+<option value="">未选择</option>
+{% for record in data_mc_reckwkwordcategkwkwories_57544 %}
+
+<option value="{{record.value}}">
+
+<p>{{record.value}}:{{record.label }}</p>
+
+</option>
+
+{% endfor %}
+</select>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_description.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="description_upd"
+class="form-label form-group">
+描述(description)
+</label>
+
+<textarea type="text" class="validate form-control form-control-lg"
+name="description"
+id="description_upd"
+placeholder="描述"
+{% if not mcauthfield_description.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_description.mcauthchange %}
+readonly
+{% endif %}
+data-name="update"></textarea>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_createtime.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="createtime_upd"
+class="form-label form-group">
+创建时间(createtime)
+</label>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_updatetime.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="updatetime_upd"
+class="form-label form-group">
+更新时间(updatetime)
+</label>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_kwkwordernumber.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="kwkwordernumber_upd"
+class="form-label form-group">
+显示顺序(kwkwordernumber)
+</label>
+
+<input type="text" class="validate form-control form-control-lg"
+name="kwkwordernumber"
+id="kwkwordernumber_upd"
+placeholder="显示顺序"
+{% if not mcauthfield_kwkwordernumber.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_kwkwordernumber.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_status.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="status_upd"
+class="form-label form-group">
+分类状态如启用、禁用(status)
+</label>
+
+<input type="text" class="validate form-control form-control-lg"
+name="status"
+id="status_upd"
+placeholder="分类状态如启用、禁用"
+{% if not mcauthfield_status.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_status.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+
+</div>
+        {% endif %}
+</div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn modal-action modal-close btn-primary waves-effect waves-light">提交</button>
+                  <button type="reset" class="btn modal-action modal-close btn-default waves-effect waves-light" data-bs-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if has_del %}
+    <div id="modalremove" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">删除</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>确认删除这条记录吗?</p>
+          </div>
+          <div class="modal-footer">
+            <div class="row custom-form">
+              <form action="" method="post" enctype="multipart/form-data" class="col s12">
+                <input type="text" name="optype" value="del" hidden />{% csrf_token %}<input type="text" name="_id" value="" data-name="remove" hidden />
+
+                <div class="modal-footer">
+                  <button type="submit" class="btn modal-action modal-close btn-primary waves-effect waves-light">确认</button>
+                  <button type="reset" class="btn modal-action modal-close btn-default waves-effect waves-light" data-bs-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if has_view %}
+    <div id="modalpreview" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <h4>预览</h4>
+          <div class="">
+            
+{% if mcauthfield_id.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">分类ID</p>
+
+<p id="id_view">
+{{record.id|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_name.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">分类名称</p>
+
+<p id="name_view">
+{{record.name|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_parentid.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">关联父分类ID用于构建分类树</p>
+
+<p id="parentid_view">
+{{record.parentid|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_description.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">描述</p>
+
+<p id="description_view">
+{{record.description|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_createtime.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">创建时间</p>
+
+<p id="createtime_view">
+{{record.createtime|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_updatetime.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">更新时间</p>
+
+<p id="updatetime_view">
+{{record.updatetime|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_kwkwordernumber.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">显示顺序</p>
+
+<p id="kwkwordernumber_view">
+{{record.kwkwordernumber|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_status.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">分类状态如启用、禁用</p>
+
+<p id="status_view">
+{{record.status|safe }}
+</p>
+
+</div>
+{% endif %}
+<div class="modal-footer">
+              <button type="reset" class="btn modal-action modal-close btn-default waves-effect waves-light" data-bs-dismiss="modal">关闭</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block script-footer %}
+<script>
+  function myreset(){
+window.location.href= "/config_busi/reckwkwordcategkwkwories";
+};
+if (document.getElementById("modalupdate")){
+document.getElementById("modalupdate").addEventListener("show.bs.modal",event=>{
+let _id = event.relatedTarget.getAttribute('data-bs-data');
+$("input[data-name=update_id]").val(_id);
+$.ajax({
+url: '/config_busi/reckwkwordcategkwkwories',
+method: 'post',
+data: {optype:'get',_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value}, // JSON.stringify(data),
+dataType: 'json',
+success: resp => {
+
+{% if mcauthfield_id.mcauthview %}
+$("#id_upd").val(resp.ins.id);
+{% endif %}
+
+{% if mcauthfield_name.mcauthview %}
+$("#name_upd").val(resp.ins.name);
+{% endif %}
+
+{% if mcauthfield_parentid.mcauthview %}
+$("#parentid_upd").val(resp.ins.parentid);
+{% endif %}
+
+{% if mcauthfield_description.mcauthview %}
+$("#description_upd").val(resp.ins.description);
+{% endif %}
+
+{% if mcauthfield_createtime.mcauthview %}
+$("#createtime_upd").val(resp.ins.createtime);
+{% endif %}
+
+{% if mcauthfield_updatetime.mcauthview %}
+$("#updatetime_upd").val(resp.ins.updatetime);
+{% endif %}
+
+{% if mcauthfield_kwkwordernumber.mcauthview %}
+$("#kwkwordernumber_upd").val(resp.ins.kwkwordernumber);
+{% endif %}
+
+{% if mcauthfield_status.mcauthview %}
+$("#status_upd").val(resp.ins.status);
+{% endif %}
+
+},
+error: err => {
+},
+complete: res => {
+},
+})
+});
+};
+function upd(_id){
+let data = {
+optype:'get',
+_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value,
+
+{% if mcauthfield_id.mcauthchange %}
+id:$("#id_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_name.mcauthchange %}
+name:$("#name_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_parentid.mcauthchange %}
+parentid:$("#parentid_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_description.mcauthchange %}
+description:$("#description_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_createtime.mcauthchange %}
+createtime:$("#createtime_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_updatetime.mcauthchange %}
+updatetime:$("#updatetime_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_kwkwordernumber.mcauthchange %}
+kwkwordernumber:$("#kwkwordernumber_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_status.mcauthchange %}
+status:$("#status_upd]").val(),
+{% endif %}
+
+}
+$.ajax({
+url: '/config_busi/reckwkwordcategkwkwories',
+method: 'post',
+data: data,
+dataType: 'json',
+success: resp => {
+console.log(resp);
+},
+error: err => {
+},
+complete: res => {
+},
+})
+};
+if (document.getElementById("modalpreview")) {
+document.getElementById("modalpreview").addEventListener("show.bs.modal",event=>{
+let _id = event.relatedTarget.getAttribute('data-bs-data');
+$("input[data-name=update_id]").val(_id);
+$.ajax({
+url: '/config_busi/reckwkwordcategkwkwories',
+method: 'post',
+data: {optype:'get',_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value}, // JSON.stringify(data),
+dataType: 'json',
+success: resp => {
+
+
+
+{% if mcauthfield_id.mcauthview %}
+document.getElementById("id_view").innerHTML=resp.ins.id;
+{% endif %}
+
+
+
+
+{% if mcauthfield_name.mcauthview %}
+document.getElementById("name_view").innerHTML=resp.ins.name;
+{% endif %}
+
+
+
+
+{% if mcauthfield_parentid.mcauthview %}
+document.getElementById("parentid_view").innerHTML=resp.ins.parentid;
+{% endif %}
+
+
+
+
+{% if mcauthfield_description.mcauthview %}
+document.getElementById("description_view").innerHTML=resp.ins.description;
+{% endif %}
+
+
+
+
+{% if mcauthfield_createtime.mcauthview %}
+document.getElementById("createtime_view").innerHTML=resp.ins.createtime;
+{% endif %}
+
+
+
+
+{% if mcauthfield_updatetime.mcauthview %}
+document.getElementById("updatetime_view").innerHTML=resp.ins.updatetime;
+{% endif %}
+
+
+
+
+{% if mcauthfield_kwkwordernumber.mcauthview %}
+document.getElementById("kwkwordernumber_view").innerHTML=resp.ins.kwkwordernumber;
+{% endif %}
+
+
+
+
+{% if mcauthfield_status.mcauthview %}
+document.getElementById("status_view").innerHTML=resp.ins.status;
+{% endif %}
+
+
+},
+error: err => {
+},
+complete: res => {
+},
+})
+});
+};
+if (document.getElementById("modalremove")) {
+document.getElementById("modalremove").addEventListener("show.bs.modal",event=>{
+let _id = event.relatedTarget.getAttribute('data-bs-data');
+$("input[data-name=remove]").val(_id);
+});
+};
+function del(_id){
+$.ajax({
+url: '/config_busi/reckwkwordcategkwkwories',
+method: 'post',
+data: {optype:'del',_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value}, // JSON.stringify(data),
+dataType: 'json',
+success: resp => {
+console.log(resp);
+},
+error: err => {
+},
+complete: res => {
+},
+})
+};
+</script>
+{% endblock %}
